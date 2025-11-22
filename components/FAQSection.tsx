@@ -76,9 +76,8 @@ const FAQSection: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-white p-4 rounded-md shadow-md ${
-                  typeof item === "object" && "flex flex-col"
-                }`}
+                className={`bg-white p-4 rounded-md shadow-md ${typeof item === "object" && "flex flex-col"
+                  }`}
               >
                 {typeof item === "string" ? (
                   <p className="text-[#2f2b3d]/90 text-sm font-medium">
