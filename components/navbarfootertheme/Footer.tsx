@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 interface FooterLinksSection {
   title: string;

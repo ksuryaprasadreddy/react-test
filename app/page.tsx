@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbarfootertheme/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,9 +9,9 @@ import { Star, Laptop, User, Diamond, BadgeCheck, ShoppingCart } from "lucide-re
 import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, MdOutlineHeadsetMic } from "react-icons/md";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
+import FAQSection from "@/components/navbarfootertheme/FAQSection";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import Footer from "@/components/navbarfootertheme/Footer";
 import PopulatArticles from "@/components/PopularArticles";
 import FlowChart from "@/components/FlowChart";
 
