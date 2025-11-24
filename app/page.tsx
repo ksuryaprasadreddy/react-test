@@ -196,7 +196,7 @@ export default function HomePage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-4xl md:text-[42px] font-extrabold leading-tight bg-[linear-gradient(90deg,#3B82F6_0%,#7367F0_20%,#7367F0_80%,#FF66B2_100%)] text-transparent bg-clip-text max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-[42px] font-black leading-tight bg-[linear-gradient(90deg,#3B82F6_0%,#7367F0_20%,#7367F0_80%,#FF66B2_100%)] text-transparent bg-clip-text max-w-4xl mx-auto drop-shadow-xl">
               A comprehensive platform for managing Service contracts and Extended warranties
             </h1>
             <div className="text-[rgba(47,43,61,0.90)] dark:text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
@@ -289,9 +289,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="industries" className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
+      {/* <section id="industries" className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
         <div className="container mx-auto px-4 text-center">
-          {/* <div className="flex flex-col text-center gap-8 lg:gap-14">
+          <div className="flex flex-col text-center gap-8 lg:gap-14">
             
             <div className="flex flex-col gap-8">
               <div className="space-y-4">
@@ -347,7 +347,7 @@ export default function HomePage() {
                 <TestimonialCard key={index} {...testimonial} />
               ))}
             </div>
-          </div> */}
+          </div>
           <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
             <span className="text-[#7367f0] text-sm font-medium">
               Industries
@@ -356,7 +356,6 @@ export default function HomePage() {
 
           <div className="mt-4 border-[#2f2b3d]/10 dark:border-slate-700">
             <div className="flex justify-center gap-8">
-              {/* Add your brand logos here */}
               <div className="w-24 h-10 bg-gray-200/50 rounded"></div>
               <div className="w-24 h-10 bg-gray-200/50 rounded"></div>
               <div className="w-24 h-10 bg-gray-200/50 rounded"></div>
@@ -365,22 +364,8 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Technologies Section Placeholder */}
-      <section id="technologies" className="py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
-            <span className="text-[#7367f0] text-sm font-medium">
-              Technologies
-            </span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
-            Cutting-edge Technologies
-          </h2>
-          <p className="text-[#2f2b3d]/70 dark:text-slate-400">Coming soon...</p>
-        </div>
-      </section>
       {/* <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -477,11 +462,29 @@ export default function HomePage() {
       <section>
         <PopulatArticles />
       </section>
+
+      {/* Technologies Section Placeholder */}
+      <section id="technologies" className="py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+            <span className="text-[#7367f0] text-sm font-medium">
+              Technologies
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
+            Cutting-edge Technologies
+          </h2>
+          <p className="text-[#2f2b3d]/70 dark:text-slate-400">Coming soon...</p>
+        </div>
+      </section>
+
       <section id="faq">
         <FAQSection />
       </section>
-      <section className="flex flex-col lg:flex-row items-center justify-between w-full h-[40vh] bg-gradient-to-r from-pink-300 via-purple-300  to-[#7367f0] py-10">
-        <div className="flex justify-center lg:w-1/2 px-4 text-center lg:text-left">
+      <section className="flex flex-col lg:flex-row items-center justify-between w-full min-h-[40vh] h-auto 
+bg-gradient-to-r from-white via-pink-200 via-[25%] from-white via-pink-200 to-white py-10 lg:py-0">
+
+        <div className="flex justify-center lg:w-1/2 px-4 text-center lg:text-left mb-8 lg:mb-0">
           <div>
             <h2 className="text-[#7367f0] text-3xl sm:text-4xl font-bold leading-tight mb-4">
               Ready to Get Started?
@@ -496,13 +499,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+        <div className="lg:w-1/2 flex justify-center items-end self-end">
           <Image
             src="/dashboardSS.png"
             alt="dashboard image"
             width={456}
             height={576}
-            className="rounded-md shadow-lg"
+            className="rounded-t-md shadow-lg max-w-[90%] md:max-w-md lg:max-w-full h-auto"
           />
         </div>
       </section>
