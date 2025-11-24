@@ -89,7 +89,7 @@ const ContactSection: React.FC = () => {
               <img
                 src="https://lumanisystems.com/images/contact.jpg"
                 alt="Preview"
-                className="w-full h-full object-cover rounded-tl-[60px] relative z-10"
+                className="w-full h-[450px] object-cover rounded-tl-[60px] relative z-10"
               />
             </div>
 
