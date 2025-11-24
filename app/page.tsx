@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, Laptop, User, Diamond, BadgeCheck, Cloud, ShieldCheck, Layers, Bot, Headphones, ShoppingCart } from "lucide-react";
+import { Star, Laptop, User, Diamond, BadgeCheck, ShoppingCart } from "lucide-react";
+import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, MdOutlineHeadsetMic } from "react-icons/md";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
@@ -48,54 +49,47 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
         <motion.div
           animate={{
             scale: isHovered ? 1.2 : 1,
+            rotate: isHovered ? 5 : 0,
           }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
-          <Icon className="w-8 h-8 text-[#7367f0] fill-[#7367f0]/20" />
+          <Icon className="w-8 h-8 text-[#7367f0]" />
         </motion.div>
       </div>
-      <div className="flex flex-col items-center gap-2">
-        <motion.div
-          className="text-center text-lg font-medium leading-7"
-          animate={{
-            color: isHovered ? "#7367f0" : "var(--foreground)",
-          }}
-        >
-          {title}
-        </motion.div>
-        <div className="text-center text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
-          {description}
-        </div>
-      </div>
+      <h3 className="text-xl font-semibold text-[#2f2b3d]/90 dark:text-white text-center">
+        {title}
+      </h3>
+      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-sm">
+        {description}
+      </p>
     </motion.div>
   );
 };
 
-const TestimonialCard = ({
-  content,
-  author,
-  role,
-  rating,
-  image,
-}: Testimonial) => (
+const TestimonialCard = ({ content, author, role, rating, image }: Testimonial) => (
   <motion.div
-    className="flex flex-col justify-center items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-md shadow-[0px_3px_12px_0px_rgba(47,43,61,0.14)] dark:shadow-none"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+    whileHover={{ y: -5 }}
+    transition={{ duration: 0.3 }}
   >
-    <p className="text-[#2f2b3d]/70 dark:text-slate-300 text-sm">{content}</p>
-    <div className="flex gap-0.5">
-      {Array.from({ length: rating }).map((_, i) => (
-        <Star key={i} className="w-5 h-5 fill-[#7367f0] text-[#7367f0]" />
+    <div className="flex gap-1 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className={`w-4 h-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+            }`}
+        />
       ))}
     </div>
+    <p className="text-[#2f2b3d]/70 dark:text-slate-300 mb-6 leading-relaxed">
+      "{content}"
+    </p>
     <div className="flex items-center gap-3">
       <Image
         src={image}
         alt={author}
-        width={32}
-        height={32}
+        width={40}
+        height={40}
         className="rounded-full"
       />
       <div className="flex flex-col">
@@ -116,31 +110,31 @@ export default function HomePage() {
       title: "Cloud Platform",
       description:
         "Cloud based platform to all your business data and tools",
-      icon: Cloud,
+      icon: MdOutlineCloud,
     },
     {
       title: "Security",
       description:
         "Secure authentication with ability to integrate with any industry standard authentication models",
-      icon: ShieldCheck,
+      icon: MdOutlineSecurity,
     },
     {
       title: "API-Driven Architecture",
       description:
         "The system is built on independent microservices to ensure maximum scalibility, resilience, and technology diversity. This architectural choice facilitates out-of-process execution and enabels faster, seamless integration with any proprietary platform.",
-      icon: Layers,
+      icon: MdOutlineLayers,
     },
     {
       title: "AI Agents for Claims and compliance management",
       description:
         "In built AI agents for automated data processing, Claim intake and triage, applying contract, claim and cancel rules to ensure compliance.",
-      icon: Bot,
+      icon: MdOutlineSmartToy,
     },
     {
       title: "Excellent Support",
       description:
         "Integrated with unified communications service offering features like video conferencing, chat, and business calling.",
-      icon: Headphones,
+      icon: MdOutlineHeadsetMic,
     },
     // {
     //   title: "Well Documented",
@@ -179,7 +173,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      
+
       {/* Hero Section */}
       <motion.section
         id="home"
@@ -264,7 +258,7 @@ export default function HomePage() {
             </p> */}
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap gap-6">
             {features.map((feature, index) => (
               <FeatureCard
                 key={index}
