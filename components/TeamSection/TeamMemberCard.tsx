@@ -35,10 +35,10 @@ const TeamMemberCard = ({ member }: TeamMemberCardProps) => {
           </motion.div>
         </div>
         <div className="p-4 text-center">
-          <h3 className="text-lg font-medium text-[#2f2b3d]/90">
+          <h3 className="text-lg font-medium text-[#2f2b3d]/90 dark:text-white">
             {member.name}
           </h3>
-          <p className="text-[#2f2b3d]/40 text-sm">{member.role}</p>
+          <p className="text-[#2f2b3d]/40 dark:text-slate-400 text-sm">{member.role}</p>
         </div>
       </div>
     </motion.div>

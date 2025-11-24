@@ -5,17 +5,19 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Laptop, User, Diamond, BadgeCheck, Code2, RefreshCw, Zap, Plug, Headphones, BookOpen, ShoppingCart } from "lucide-react";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+const MotionButton = motion(Button);
+
 interface Feature {
   title: string;
   description: string;
-  icon?: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 interface Testimonial {
@@ -26,39 +28,123 @@ interface Testimonial {
   image: string;
 }
 
+const FeatureCard = ({ title, description, icon: Icon }: Feature) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="flex flex-col items-center gap-4"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+    >
+      <div className="w-16 h-16 relative overflow-hidden bg-[#7367f0]/10 rounded-full flex items-center justify-center">
+        <motion.div
+          animate={{
+            scale: isHovered ? 1.2 : 1,
+          }}
+          transition={{ duration: 0.2 }}
+        >
+          <Icon className="w-8 h-8 text-[#7367f0]" />
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <motion.div
+          className="text-center text-lg font-medium leading-7"
+          animate={{
+            color: isHovered ? "#7367f0" : "var(--foreground)",
+          }}
+        >
+          {title}
+        </motion.div>
+        <div className="text-center text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
+          {description}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const TestimonialCard = ({
+  content,
+  author,
+  role,
+  rating,
+  image,
+}: Testimonial) => (
+  <motion.div
+    className="flex flex-col justify-center items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-md shadow-[0px_3px_12px_0px_rgba(47,43,61,0.14)] dark:shadow-none"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <p className="text-[#2f2b3d]/70 dark:text-slate-300 text-sm">{content}</p>
+    <div className="flex gap-0.5">
+      {Array.from({ length: rating }).map((_, i) => (
+        <Star key={i} className="w-5 h-5 fill-[#7367f0] text-[#7367f0]" />
+      ))}
+    </div>
+    <div className="flex items-center gap-3">
+      <Image
+        src={image}
+        alt={author}
+        width={32}
+        height={32}
+        className="rounded-full"
+      />
+      <div className="flex flex-col">
+        <span className="text-[#2f2b3d]/90 dark:text-white text-sm font-medium">
+          {author}
+        </span>
+        <span className="text-[#2f2b3d]/40 dark:text-slate-400 text-xs">
+          {role}
+        </span>
+      </div>
+    </div>
+  </motion.div>
+);
+
 export default function HomePage() {
-  const [isHovered, setIsHovered] = useState<string | null>(null);
 
   const features: Feature[] = [
     {
       title: "Quality Code",
       description:
         "Code structure that all developers will easily understand and fall in love with.",
+      icon: Code2,
     },
     {
       title: "Continuous Updates",
       description:
         "Free updates for the next 12 months, including new demos and features.",
+      icon: RefreshCw,
     },
     {
       title: "Starter Kit",
       description:
         "Start your project quickly without having to remove unnecessary features.",
+      icon: Zap,
     },
     {
       title: "API Ready",
       description:
         "Just change the endpoint and see your own data loaded within seconds.",
+      icon: Plug,
     },
     {
       title: "Excellent Support",
       description:
         "An easy-to-follow doc with lots of references and code examples.",
+      icon: Headphones,
     },
     {
       title: "Well Documented",
       description:
         "An easy-to-follow doc with lots of references and code examples.",
+      icon: BookOpen,
     },
   ];
 
@@ -89,90 +175,17 @@ export default function HomePage() {
     },
   ];
 
-  const FeatureCard = ({ title, description }: Feature) => (
-    <motion.div
-      className="flex flex-col items-center gap-4"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.05 }}
-      onHoverStart={() => setIsHovered(title)}
-      onHoverEnd={() => setIsHovered(null)}
-    >
-      <div className="w-16 h-16 relative overflow-hidden bg-[#7367f0]/10 rounded-full flex items-center justify-center">
-        <motion.div
-          animate={{
-            scale: isHovered === title ? 1.2 : 1,
-          }}
-          transition={{ duration: 0.2 }}
-        >
-          {/* You can add specific icons here */}
-        </motion.div>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <motion.div
-          className="text-center text-lg font-medium leading-7"
-          animate={{
-            color: isHovered === title ? "#7367f0" : "rgba(47,43,61,0.90)",
-          }}
-        >
-          {title}
-        </motion.div>
-        <div className="text-center text-[#2f2b3d]/70 text-sm">
-          {description}
-        </div>
-      </div>
-    </motion.div>
-  );
-
-  const TestimonialCard = ({
-    content,
-    author,
-    role,
-    rating,
-    image,
-  }: Testimonial) => (
-    <motion.div
-      className="flex flex-col gap-4 p-6 bg-white rounded-md shadow-[0px_3px_12px_0px_rgba(47,43,61,0.14)]"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <p className="text-[#2f2b3d]/70 text-sm">{content}</p>
-      <div className="flex gap-0.5">
-        {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} className="w-5 h-5 fill-[#7367f0] text-[#7367f0]" />
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <Image
-          src={image}
-          alt={author}
-          width={32}
-          height={32}
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <span className="text-[#2f2b3d]/90 text-sm font-medium">
-            {author}
-          </span>
-          <span className="text-[#2f2b3d]/40 text-xs">{role}</span>
-        </div>
-      </div>
-    </motion.div>
-  );
-
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <motion.section
-        className="relative w-full py-8 md:py-12 bg-gradient-to-tr from-[#EAE8FD] to-[#FCE5E6] rounded-b-[5rem]"
+        className="relative w-full py-8 md:py-4 bg-[radial-gradient(ellipse_at_center,_#E0D8FF_0%,_#FCE5E6_100%)] dark:bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#2a1a2a_100%)] rounded-b-[5rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4">
-          <div className="w-full md:w-[90%] mx-auto bg-gray-100 rounded-md mb-8">
+          <div className="w-full md:w-[90%] mx-auto bg-gray-100 dark:bg-slate-800/50 rounded-md mb-8">
             <Navbar />
           </div>
 
@@ -187,37 +200,27 @@ export default function HomePage() {
               <br />
               all your businesses
             </h1>
-            <div className="text-[rgba(47,43,61,0.90)] text-sm md:text-base">
+            <div className="text-[rgba(47,43,61,0.90)] dark:text-slate-300 text-sm md:text-base">
               Production-ready & easy to use Admin Template
               <br />
               for Reliability and Customizability.
             </div>
           </motion.div>
 
-          <motion.div
-            className="flex justify-center mb-8"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button className="bg-[#7367F0] text-white rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors">
-              <svg
-                className="w-4 h-5"
-                viewBox="0 0 16 20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M2 2h12v12H2z" />
-                <circle cx="8" cy="8" r="2" />
-              </svg>
+          <motion.div className="flex justify-center mb-8">
+            <MotionButton className="bg-[#7367F0] text-white rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ShoppingCart className="w-4 h-5" />
               <span className="text-sm font-medium capitalize">
                 Purchase Now
               </span>
-            </Button>
+            </MotionButton>
           </motion.div>
 
           <motion.div
-            className="flex justify-center"
+            className="flex justify-center relative z-10 -mb-20 md:-mb-80"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -227,14 +230,14 @@ export default function HomePage() {
               alt="dashboard"
               width={900}
               height={700}
-              className="rounded-[2.5rem] w-full max-w-4xl"
+              className="rounded-[0.5rem] w-full max-w-4xl shadow-2xl"
             />
           </motion.div>
         </div>
       </motion.section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 mt-20 md:mt-80">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -248,12 +251,15 @@ export default function HomePage() {
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 mb-2">
-              Everything you need
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
+              <span className="relative inline-block overflow-visible">
+                Everything you need
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+              </span>
               <span className="font-medium"> to start your next project</span>
             </h2>
 
-            <p className="text-[#2f2b3d]/70 text-sm md:text-base max-w-2xl mx-auto">
+            <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
               Not just a set of tools, the package includes ready-to-deploy
               conceptual application.
             </p>
@@ -267,9 +273,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-[#f8f7fa] rounded-t-[3rem]">
+      <section className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14">
+          <div className="flex flex-col text-center gap-8 lg:gap-14">
             {/* Left Column - Heading */}
             <div className="flex flex-col gap-8">
               <div className="space-y-4">
@@ -282,10 +288,13 @@ export default function HomePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90">
-                    What people say
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white">
+                    <span className="relative inline-block overflow-visible">
+                      What people say
+                      <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+                    </span>
                   </h2>
-                  <p className="text-[#2f2b3d]/70 text-sm">
+                  <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
                     See what our customers have to
                     <br />
                     say about their experience.
@@ -293,7 +302,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center">
                 <Button className="p-2 bg-[#7367f0]/20 rounded-md hover:bg-[#7367f0]/30 transition-colors">
                   <svg className="w-6 h-6 text-[#7367f0]" viewBox="0 0 24 24">
                     <path
@@ -325,7 +334,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-[#2f2b3d]/10">
+          <div className="mt-16 pt-8 border-t border-[#2f2b3d]/10 dark:border-slate-700">
             <div className="flex justify-center gap-8">
               {/* Add your brand logos here */}
               <div className="w-24 h-10 bg-gray-200/50 rounded"></div>
@@ -341,7 +350,7 @@ export default function HomePage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="bg-white"
+        className="bg-white dark:bg-background"
       >
         <TeamSection />
       </motion.section>
@@ -356,14 +365,14 @@ export default function HomePage() {
               className="p-6 rounded-md border border-[#7367f0]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
-                {/* Icon Placeholder */}
+              <div className="w-16 h-16 bg-[#7367f0]/10 rounded-full flex items-center justify-center overflow-hidden">
+                <Laptop className="w-8 h-8 text-[#7367f0]" />
               </div>
               <div className="text-center">
-                <div className="text-[#2f2b3d]/90 text-[28px] font-medium leading-[42px]">
+                <div className="text-[#2f2b3d]/90 dark:text-white text-[28px] font-medium leading-[42px]">
                   7.1k+
                 </div>
-                <div className="text-[#2f2b3d]/70 text-[15px] font-medium leading-snug">
+                <div className="text-[#2f2b3d]/70 dark:text-slate-400 text-[15px] font-medium leading-snug">
                   Support Tickets
                   <br />
                   Resolved
@@ -376,14 +385,14 @@ export default function HomePage() {
               className="p-6 rounded-md border border-[#28c76f]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
-                {/* Icon Placeholder */}
+              <div className="w-16 h-16 bg-[#28c76f]/10 rounded-full flex items-center justify-center overflow-hidden">
+                <User className="w-8 h-8 text-[#28c76f]" />
               </div>
               <div className="text-center">
-                <div className="text-[#2f2b3d]/90 text-[28px] font-medium leading-[42px]">
+                <div className="text-[#2f2b3d]/90 dark:text-white text-[28px] font-medium leading-[42px]">
                   50k+
                 </div>
-                <div className="text-[#2f2b3d]/70 text-[15px] font-medium leading-snug">
+                <div className="text-[#2f2b3d]/70 dark:text-slate-400 text-[15px] font-medium leading-snug">
                   Join creatives
                   <br />
                   community
@@ -396,20 +405,14 @@ export default function HomePage() {
               className="p-6 rounded-md border border-[#00bad1]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
-                <Image
-                  className="w-[58px] h-12"
-                  src="https://via.placeholder.com/58x48"
-                  alt="Icon"
-                  width={50}
-                  height={50}
-                />
+              <div className="w-16 h-16 bg-[#00bad1]/10 rounded-full flex items-center justify-center overflow-hidden">
+                <Diamond className="w-8 h-8 text-[#00bad1]" />
               </div>
               <div className="text-center">
-                <div className="text-[#2f2b3d]/90 text-[28px] font-medium leading-[42px]">
+                <div className="text-[#2f2b3d]/90 dark:text-white text-[28px] font-medium leading-[42px]">
                   4.8/5
                 </div>
-                <div className="text-[#2f2b3d]/70 text-[15px] font-medium leading-snug">
+                <div className="text-[#2f2b3d]/70 dark:text-slate-400 text-[15px] font-medium leading-snug">
                   Highly Rated
                   <br />
                   Products
@@ -422,14 +425,14 @@ export default function HomePage() {
               className="p-6 rounded-md border border-[#ff9f43]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
-                {/* Icon Placeholder */}
+              <div className="w-16 h-16 bg-[#ff9f43]/10 rounded-full flex items-center justify-center overflow-hidden">
+                <BadgeCheck className="w-8 h-8 text-[#ff9f43]" />
               </div>
               <div className="text-center">
-                <div className="text-[#2f2b3d]/90 text-[28px] font-medium leading-[42px]">
+                <div className="text-[#2f2b3d]/90 dark:text-white text-[28px] font-medium leading-[42px]">
                   100%
                 </div>
-                <div className="text-[#2f2b3d]/70 text-[15px] font-medium leading-snug">
+                <div className="text-[#2f2b3d]/70 dark:text-slate-400 text-[15px] font-medium leading-snug">
                   Money Back
                   <br />
                   Guarantee
@@ -448,7 +451,7 @@ export default function HomePage() {
             <h2 className="text-[#7367f0] text-3xl sm:text-4xl font-bold leading-tight mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-[#2f2b3d]/70 text-lg sm:text-xl font-medium leading-relaxed mb-6">
+            <p className="text-[#2f2b3d]/70 dark:text-white/80 text-lg sm:text-xl font-medium leading-relaxed mb-6">
               Start your project with a 14-day free trial
             </p>
             <div className="flex justify-center lg:justify-start">

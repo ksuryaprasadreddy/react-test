@@ -17,7 +17,6 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -38,7 +37,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="min-w-screen px-10 py-20 bg-[#f8f7fa]">
+    <div className="min-w-screen px-10 py-20 bg-[#f8f7fa] dark:bg-slate-900">
       <motion.div
         className="flex flex-col items-center gap-16"
         initial="initial"
@@ -48,19 +47,20 @@ const ContactSection: React.FC = () => {
         {/* Header Section */}
         <div className="text-center space-y-4">
           <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded">
-            <span className="text-[#7367f0] text-sm font-medium">
+            <span className="text-[#7367f0] text-sm font-medium font-['Public Sans']">
               Contact Us
             </span>
           </div>
 
           <div className="space-y-1">
-            <h2 className="text-2xl md:text-3xl">
-              <span className="font-extrabold text-[#2f2b3d]/90">
+            <h2 className="text-2xl md:text-3xl text-[#2f2b3d]/90 dark:text-white">
+              <span className="relative inline-block font-extrabold text-[#2f2b3d]/90 dark:text-white overflow-visible">
                 lets work
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
               </span>
-              <span className="font-medium text-[#2f2b3d]/90"> together</span>
+              <span className="font-medium text-[#2f2b3d]/90 dark:text-white"> together</span>
             </h2>
-            <p className="text-[#2f2b3d]/70 text-sm md:text-base">
+            <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm md:text-base">
               Any question or remark? just write us a message
             </p>
           </div>
@@ -70,7 +70,7 @@ const ContactSection: React.FC = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Contact Info Card */}
           <motion.div
-            className="w-full bg-[#f8f7fa] rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10 p-2.5"
+            className="w-full bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10 p-2.5"
             variants={fadeInUp}
           >
             <div className="aspect-video bg-gray-100 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10">
@@ -83,8 +83,8 @@ const ContactSection: React.FC = () => {
                   <Mail className="w-6 h-6 text-[#7367f0]" />
                 </div>
                 <div>
-                  <p className="text-[#2f2b3d]/70 text-sm">Email</p>
-                  <p className="text-[#2f2b3d]/90 text-sm font-medium">
+                  <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">Email</p>
+                  <p className="text-[#2f2b3d]/90 dark:text-white text-sm font-medium">
                     example@gmail.com
                   </p>
                 </div>
@@ -95,8 +95,8 @@ const ContactSection: React.FC = () => {
                   <Phone className="w-6 h-6 text-[#28c76f]" />
                 </div>
                 <div>
-                  <p className="text-[#2f2b3d]/70 text-sm">Phone</p>
-                  <p className="text-[#2f2b3d]/90 text-sm font-medium">
+                  <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">Phone</p>
+                  <p className="text-[#2f2b3d]/90 dark:text-white text-sm font-medium">
                     +1234 568 963
                   </p>
                 </div>
@@ -106,56 +106,56 @@ const ContactSection: React.FC = () => {
 
           {/* Contact Form */}
           <motion.div
-            className="w-full bg-white rounded-md shadow-[0px_3px_12px_0px_rgba(47,43,61,0.14)] p-6"
+            className="w-full bg-white dark:bg-slate-800 rounded-md shadow-[0px_3px_12px_0px_rgba(47,43,61,0.14)] p-6"
             variants={fadeInUp}
           >
             <div className="space-y-1.5 mb-6">
-              <h3 className="text-[#2f2b3d]/90 text-2xl font-medium">
+              <h3 className="text-[#2f2b3d]/90 dark:text-white text-2xl font-medium">
                 Send a message
               </h3>
-              <p className="text-[#2f2b3d]/70 text-sm">
+              <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
                 If you would like to discuss anything related to payment,
                 account, licensing, partnerships, or have pre-sales questions,
-                you&apos;re at the right place.
+                you're at the right place.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[#2f2b3d]/90 text-xs">Full Name</label>
+                  <label className="text-[#2f2b3d]/90 dark:text-slate-200 text-xs">Full Name</label>
                   <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="John Doe"
-                    className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 focus:outline-none focus:border-[#7367f0]"
+                    className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 dark:text-white dark:placeholder:text-slate-400 focus:outline-none focus:border-[#7367f0]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[#2f2b3d]/90 text-xs">Email</label>
+                  <label className="text-[#2f2b3d]/90 dark:text-slate-200 text-xs">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="johndoe@gmail.com"
-                    className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 focus:outline-none focus:border-[#7367f0]"
+                    className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 dark:text-white dark:placeholder:text-slate-400 focus:outline-none focus:border-[#7367f0]"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-[#2f2b3d]/90 text-xs">Message</label>
+                <label className="text-[#2f2b3d]/90 dark:text-slate-200 text-xs">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Write a message.."
                   rows={4}
-                  className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 focus:outline-none focus:border-[#7367f0] resize-none"
+                  className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm placeholder:text-[#2f2b3d]/40 dark:text-white dark:placeholder:text-slate-400 focus:outline-none focus:border-[#7367f0] resize-none"
                 />
               </div>
 

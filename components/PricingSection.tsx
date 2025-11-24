@@ -61,7 +61,7 @@ const PricingSection: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-4 py-16 bg-[#f8f7fa] rounded-3xl">
+    <div className="w-full px-4 py-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-3xl">
       <motion.div
         className="flex flex-col items-center gap-16"
         initial="initial"
@@ -77,11 +77,14 @@ const PricingSection: React.FC = () => {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2f2b3d]/90">
-              Tailored pricing plans{" "}
-              <span className="font-medium">designed for you</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2f2b3d]/90 dark:text-white">
+              <span className="relative inline-block font-extrabold overflow-visible">
+                Tailored pricing plans 
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+              </span>
+              <span className="font-medium"> designed for you</span>
             </h2>
-            <p className="text-[#2f2b3d]/70 text-sm md:text-base">
+            <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm md:text-base">
               All plans include 40+ advanced tools and features to boost your
               product.
               <br />
@@ -92,7 +95,7 @@ const PricingSection: React.FC = () => {
           {/* Toggle Switch */}
           <div className="flex items-center justify-center gap-4">
             <span
-              className={`text-sm ${!isAnnual ? "text-[#2f2b3d]" : "text-[#2f2b3d]/70"}`}
+              className={`text-sm ${!isAnnual ? "text-[#2f2b3d] dark:text-white" : "text-[#2f2b3d]/70 dark:text-slate-400"}`}
             >
               Pay Monthly
             </span>
@@ -108,11 +111,11 @@ const PricingSection: React.FC = () => {
               />
             </motion.button>
             <span
-              className={`text-sm ${isAnnual ? "text-[#2f2b3d]" : "text-[#2f2b3d]/70"}`}
+              className={`text-sm ${isAnnual ? "text-[#2f2b3d] dark:text-white" : "text-[#2f2b3d]/70 dark:text-slate-400"}`}
             >
               Pay Annual
             </span>
-            <div className="text-sm font-medium text-[#2f2b3d]/70 ml-2">
+            <div className="text-sm font-medium text-[#2f2b3d]/70 dark:text-slate-400 ml-2">
               Save 25%
             </div>
           </div>
@@ -123,23 +126,22 @@ const PricingSection: React.FC = () => {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.title}
-              className={`flex flex-col p-8 bg-white rounded-lg ${
-                plan.isPopular
-                  ? "border border-[#7367f0] shadow-lg"
-                  : "shadow-md"
-              }`}
+              className={`flex flex-col p-8 bg-white dark:bg-slate-800 rounded-lg ${plan.isPopular
+                ? "border border-[#7367f0] shadow-lg dark:shadow-none"
+                : "shadow-md dark:shadow-none"
+                }`}
               variants={fadeInUp}
               transition={{ delay: index * 0.2 }}
             >
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-medium text-[#2f2b3d]/90 mb-4">
+                <h3 className="text-2xl font-medium text-[#2f2b3d]/90 dark:text-white mb-4">
                   {plan.title}
                 </h3>
                 <div className="flex items-end justify-center gap-1">
                   <span className="text-4xl font-bold text-[#7367f0]">
                     ${isAnnual ? (plan.price * 0.75).toFixed(0) : plan.price}
                   </span>
-                  <span className="text-[#2f2b3d]/40 mb-1">/mo</span>
+                  <span className="text-[#2f2b3d]/40 dark:text-slate-500 mb-1">/mo</span>
                 </div>
               </div>
 
@@ -151,17 +153,16 @@ const PricingSection: React.FC = () => {
                     >
                       <div className="w-3 h-3" />
                     </div>
-                    <span className="text-[#2f2b3d]/90 text-sm">{feature}</span>
+                    <span className="text-[#2f2b3d]/90 dark:text-slate-300 text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
 
               <button
-                className={`mt-8 w-full py-2 px-5 rounded-md text-sm font-medium ${
-                  plan.isPopular
-                    ? "bg-[#7367f0] text-white shadow-[0px_2px_6px_0px_rgba(115,103,240,0.30)]"
-                    : "bg-[#7367f0]/20 text-[#7367f0]"
-                }`}
+                className={`mt-8 w-full py-2 px-5 rounded-md text-sm font-medium ${plan.isPopular
+                  ? "bg-[#7367f0] text-white shadow-[0px_2px_6px_0px_rgba(115,103,240,0.30)]"
+                  : "bg-[#7367f0]/20 text-[#7367f0]"
+                  }`}
               >
                 Get Started
               </button>

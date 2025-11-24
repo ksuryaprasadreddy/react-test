@@ -23,14 +23,17 @@ const TeamSection = ({ className = "" }: TeamSectionProps) => {
           </motion.div>
 
           <motion.div className="space-y-1" variants={itemVariants}>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90">
-              <span>Supported </span>
-              <span className="font-medium">by Real People</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white">
+              <span className="relative inline-block overflow-visible">
+                Supported
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+              </span>
+              <span className="font-medium"> by Real People</span>
             </h2>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <div className="w-36 h-3 bg-gradient-to-r from-[#7367f0]/20 to-transparent" />
-            </div>
-            <p className="text-[#2f2b3d]/70 text-base">
+            </div> */}
+            <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-base">
               Who is behind these great-looking interfaces?
             </p>
           </motion.div>
