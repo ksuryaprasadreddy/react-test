@@ -105,7 +105,7 @@ export default function FlowChart() {
                             <div key={index} className="relative md:grid md:grid-cols-4 items-start">
 
                                 {/* Label */}
-                                <div className="col-span-1 font-bold mt-4">
+                                <div className="col-span-1 font-bold mt-">
                                     <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
                                 </div>
 
@@ -115,17 +115,17 @@ export default function FlowChart() {
                                     <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
                                 </div>
 
-
                                 {/* Card */}
                                 <div className="col-span-3 md:pl-8">
-                                    <Card className="shadow-lg border rounded-xl">
+                                    <Card className="shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
                                         <CardContent>
-                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed">
+                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
                                                 {item.description}
                                             </p>
                                         </CardContent>
                                     </Card>
                                 </div>
+
 
                             </div>
                         ))}
