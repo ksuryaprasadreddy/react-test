@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, Laptop, User, Diamond, BadgeCheck, Code2, RefreshCw, Zap, Plug, Headphones, BookOpen, ShoppingCart } from "lucide-react";
+import { Star, Laptop, User, Diamond, BadgeCheck, Cloud, ShieldCheck, Layers, Bot, Headphones, ShoppingCart } from "lucide-react";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
@@ -28,12 +28,12 @@ interface Testimonial {
   image: string;
 }
 
-const FeatureCard = ({ title, description, icon: Icon }: Feature) => {
+const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { className?: string }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
-      className="flex flex-col items-center gap-4"
+      className={`flex flex-col items-center gap-4 ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -48,7 +48,7 @@ const FeatureCard = ({ title, description, icon: Icon }: Feature) => {
           }}
           transition={{ duration: 0.2 }}
         >
-          <Icon className="w-8 h-8 text-[#7367f0]" />
+          <Icon className="w-8 h-8 text-[#7367f0] fill-[#7367f0]/20" />
         </motion.div>
       </div>
       <div className="flex flex-col items-center gap-2">
@@ -111,41 +111,41 @@ export default function HomePage() {
 
   const features: Feature[] = [
     {
-      title: "Quality Code",
+      title: "Cloud Platform",
       description:
-        "Code structure that all developers will easily understand and fall in love with.",
-      icon: Code2,
+        "Cloud based platform to all your business data and tools",
+      icon: Cloud,
     },
     {
-      title: "Continuous Updates",
+      title: "Security",
       description:
-        "Free updates for the next 12 months, including new demos and features.",
-      icon: RefreshCw,
+        "Secure authentication with ability to integrate with any industry standard authentication models",
+      icon: ShieldCheck,
     },
     {
-      title: "Starter Kit",
+      title: "API-Driven Architecture",
       description:
-        "Start your project quickly without having to remove unnecessary features.",
-      icon: Zap,
+        "The system is built on independent microservices to ensure maximum scalibility, resilience, and technology diversity. This architectural choice facilitates out-of-process execution and enabels faster, seamless integration with any proprietary platform.",
+      icon: Layers,
     },
     {
-      title: "API Ready",
+      title: "AI Agents for Claims and compliance management",
       description:
-        "Just change the endpoint and see your own data loaded within seconds.",
-      icon: Plug,
+        "In built AI agents for automated data processing, Claim intake and triage, applying contract, claim and cancel rules to ensure compliance.",
+      icon: Bot,
     },
     {
       title: "Excellent Support",
       description:
-        "An easy-to-follow doc with lots of references and code examples.",
+        "Integrated with unified communications service offering features like video conferencing, chat, and business calling.",
       icon: Headphones,
     },
-    {
-      title: "Well Documented",
-      description:
-        "An easy-to-follow doc with lots of references and code examples.",
-      icon: BookOpen,
-    },
+    // {
+    //   title: "Well Documented",
+    //   description:
+    //     "An easy-to-follow doc with lots of references and code examples.",
+    //   icon: BookOpen,
+    // },
   ];
 
   const testimonials: Testimonial[] = [
@@ -179,15 +179,14 @@ export default function HomePage() {
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <motion.section
+        id="home"
         className="relative w-full py-8 md:py-4 bg-[radial-gradient(ellipse_at_center,_#E0D8FF_0%,_#FCE5E6_100%)] dark:bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#2a1a2a_100%)] rounded-b-[5rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="w-full md:w-[90%] mx-auto bg-gray-100 dark:bg-slate-800/50 rounded-md mb-8">
-            <Navbar />
-          </div>
+        <div className="container mx-auto px-4 pt-32">
+          <Navbar />
 
           <motion.div
             className="space-y-6 text-center mb-8"
@@ -195,15 +194,11 @@ export default function HomePage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-4xl md:text-[42px] font-extrabold leading-tight bg-gradient-to-r from-[#FF66B2] to-[#3B82F6] text-transparent bg-clip-text">
-              One dashboard to manage
-              <br />
-              all your businesses
+            <h1 className="text-4xl md:text-[42px] font-extrabold leading-tight bg-[linear-gradient(90deg,#3B82F6_0%,#7367F0_20%,#7367F0_80%,#FF66B2_100%)] text-transparent bg-clip-text max-w-4xl mx-auto">
+              A comprehensive platform for managing Service contracts and Extended warranties
             </h1>
-            <div className="text-[rgba(47,43,61,0.90)] dark:text-slate-300 text-sm md:text-base">
-              Production-ready & easy to use Admin Template
-              <br />
-              for Reliability and Customizability.
+            <div className="text-[rgba(47,43,61,0.90)] dark:text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
+              A digital solution designed to Streamline and automate the process of managing extended warranties, service contracts, and other post-purchase protection plans.
             </div>
           </motion.div>
 
@@ -212,9 +207,9 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ShoppingCart className="w-4 h-5" />
+              {/* <ShoppingCart className="w-4 h-5" /> */}
               <span className="text-sm font-medium capitalize">
-                Purchase Now
+                Join us now
               </span>
             </MotionButton>
           </motion.div>
@@ -237,7 +232,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 mt-20 md:mt-80">
+      <section id="features" className="py-16 md:py-24 mt-20 md:mt-80">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -247,7 +242,7 @@ export default function HomePage() {
           >
             <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
               <span className="text-[#7367f0] text-sm font-medium">
-                Useful Features
+                Features
               </span>
             </div>
 
@@ -256,27 +251,46 @@ export default function HomePage() {
                 Everything you need
                 <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
               </span>
-              <span className="font-medium"> to start your next project</span>
+              <span className="font-medium"> to manage your business</span>
             </h2>
 
-            <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
+            {/* <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
               Not just a set of tools, the package includes ready-to-deploy
               conceptual application.
-            </p>
+            </p> */}
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} />
+              <FeatureCard
+                key={index}
+                {...feature}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.34rem)]"
+              />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col text-center gap-8 lg:gap-14">
-            {/* Left Column - Heading */}
+      {/* Solutions Section Placeholder */}
+      <section id="solutions" className="py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+            <span className="text-[#7367f0] text-sm font-medium">
+              Solutions
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
+            Tailored Solutions
+          </h2>
+          <p className="text-[#2f2b3d]/70 dark:text-slate-400">Coming soon...</p>
+        </div>
+      </section>
+
+      <section id="industries" className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
+        <div className="container mx-auto px-4 text-center">
+          {/* <div className="flex flex-col text-center gap-8 lg:gap-14">
+            
             <div className="flex flex-col gap-8">
               <div className="space-y-4">
                 <div className="inline-flex">
@@ -326,15 +340,19 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column - Testimonials */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {testimonials.map((testimonial, index) => (
                 <TestimonialCard key={index} {...testimonial} />
               ))}
             </div>
+          </div> */}
+          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+            <span className="text-[#7367f0] text-sm font-medium">
+              Industries
+            </span>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-[#2f2b3d]/10 dark:border-slate-700">
+          <div className="mt-4 border-[#2f2b3d]/10 dark:border-slate-700">
             <div className="flex justify-center gap-8">
               {/* Add your brand logos here */}
               <div className="w-24 h-10 bg-gray-200/50 rounded"></div>
@@ -346,21 +364,36 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <motion.section
+
+      {/* Technologies Section Placeholder */}
+      <section id="technologies" className="py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+            <span className="text-[#7367f0] text-sm font-medium">
+              Technologies
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
+            Cutting-edge Technologies
+          </h2>
+          <p className="text-[#2f2b3d]/70 dark:text-slate-400">Coming soon...</p>
+        </div>
+      </section>
+      {/* <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="bg-white dark:bg-background"
       >
         <TeamSection />
-      </motion.section>
-      <section className="min-h-screen min-w-screen">
+      </motion.section> */}
+      {/* <section className="min-h-screen min-w-screen">
         <PricingSection />
-      </section>
-      <section>
+      </section> */}
+      {/* <section>
         <div className="w-full p-6 flex flex-col items-center">
           <div className="w-full max-w-[1140px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1 */}
+
             <motion.div
               className="p-6 rounded-md border border-[#7367f0]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
@@ -380,7 +413,6 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Card 2 */}
             <motion.div
               className="p-6 rounded-md border border-[#28c76f]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
@@ -400,7 +432,6 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Card 3 */}
             <motion.div
               className="p-6 rounded-md border border-[#00bad1]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
@@ -420,7 +451,6 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Card 4 */}
             <motion.div
               className="p-6 rounded-md border border-[#ff9f43]/40 flex flex-col items-center gap-4"
               whileHover={{ scale: 1.05 }}
@@ -441,8 +471,8 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
-      </section>
-      <section>
+      </section> */}
+      <section id="faq">
         <FAQSection />
       </section>
       <section className="flex flex-col lg:flex-row items-center justify-between w-full h-[40vh] bg-gradient-to-r from-pink-300 via-purple-300  to-[#7367f0] py-10">
@@ -463,15 +493,15 @@ export default function HomePage() {
         </div>
         <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
           <Image
-            src="https://via.placeholder.com/456x576"
+            src="/dashboardSS.png"
             alt="dashboard image"
-            width={200}
-            height={300}
+            width={456}
+            height={576}
             className="rounded-md shadow-lg"
           />
         </div>
       </section>
-      <section>
+      <section id="contact">
         <ContactSection />
       </section>
       <Footer />
