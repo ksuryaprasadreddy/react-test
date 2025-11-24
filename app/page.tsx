@@ -10,7 +10,7 @@ import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, 
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "../components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
 import FlowChart from "@/components/FlowChart";
