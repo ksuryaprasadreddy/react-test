@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
-import Image from "next/image";
+import { Check, Send, Plane, Rocket } from "lucide-react";
 
 interface PricingPlan {
   title: string;
   price: number;
   features: string[];
   isPopular?: boolean;
-  iconSrc: string;
+  icon: React.ElementType;
+  iconColor: string;
   iconBg: string;
 }
 
@@ -28,8 +28,9 @@ const PricingSection: React.FC = () => {
         "Traffic analytics",
         "Basic Support",
       ],
-      iconSrc: "/paper_plane_icon.png",
-      iconBg: "bg-[#C6B8FF]/20",
+      icon: Send,
+      iconColor: "text-[#7367f0]",
+      iconBg: "bg-[#7367f0]/10",
     },
     {
       title: "Team",
@@ -44,8 +45,9 @@ const PricingSection: React.FC = () => {
         "Campaign management",
         "Collaboration tools",
       ],
-      iconSrc: "/rocket_icon.png",
-      iconBg: "bg-[#7367f0]/20",
+      icon: Plane,
+      iconColor: "text-[#28c76f]",
+      iconBg: "bg-[#28c76f]/10",
     },
     {
       title: "Enterprise",
@@ -59,8 +61,9 @@ const PricingSection: React.FC = () => {
         "Social media automation",
         "Sales automation tools",
       ],
-      iconSrc: "/rocket_launch_icon.png",
-      iconBg: "bg-[#5E52D6]/20",
+      icon: Rocket,
+      iconColor: "text-[#ea5455]",
+      iconBg: "bg-[#ea5455]/10",
     },
   ];
 
@@ -145,13 +148,7 @@ const PricingSection: React.FC = () => {
             >
               <div className="text-center mb-8">
                 <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center ${plan.iconBg}`}>
-                  <Image
-                    src={plan.iconSrc}
-                    alt={`${plan.title} icon`}
-                    width={64}
-                    height={64}
-                    className="object-contain mix-blend-multiply dark:mix-blend-normal opacity-90"
-                  />
+                  <plan.icon className={`w-10 h-10 ${plan.iconColor}`} />
                 </div>
                 <h3 className="text-2xl font-medium text-[#2f2b3d]/90 dark:text-white mb-4">
                   {plan.title}
