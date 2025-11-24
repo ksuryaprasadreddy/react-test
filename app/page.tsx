@@ -12,6 +12,7 @@ import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
+import FlowChart from "@/components/FlowChart";
 
 
 const MotionButton = motion(Button);
@@ -276,17 +277,7 @@ export default function HomePage() {
 
       {/* Solutions Section Placeholder */}
       <section id="solutions" className="py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
-            <span className="text-[#7367f0] text-sm font-medium">
-              Solutions
-            </span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
-            Tailored Solutions
-          </h2>
-          <p className="text-[#2f2b3d]/70 dark:text-slate-400">Coming soon...</p>
-        </div>
+       <FlowChart/>
       </section>
 
       {/* <section id="industries" className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
