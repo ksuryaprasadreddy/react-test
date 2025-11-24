@@ -10,7 +10,7 @@ import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, 
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "../components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
 import FlowChart from "@/components/FlowChart";
@@ -360,9 +360,9 @@ export default function HomePage() {
       >
         <TeamSection />
       </motion.section> */}
-      {/* <section className="min-h-screen min-w-screen">
+      <section className="min-h-screen min-w-screen">
         <PricingSection />
-      </section> */}
+      </section>
       {/* <section>
         <div className="w-full p-6 flex flex-col items-center">
           <div className="w-full max-w-[1140px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

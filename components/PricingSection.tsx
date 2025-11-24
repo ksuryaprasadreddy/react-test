@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+import Image from "next/image";
 
 interface PricingPlan {
   title: string;
   price: number;
   features: string[];
   isPopular?: boolean;
+  iconSrc: string;
+  iconBg: string;
 }
 
 const PricingSection: React.FC = () => {
@@ -24,6 +28,8 @@ const PricingSection: React.FC = () => {
         "Traffic analytics",
         "Basic Support",
       ],
+      iconSrc: "/paper_plane_icon.png",
+      iconBg: "bg-[#C6B8FF]/20",
     },
     {
       title: "Team",
@@ -38,6 +44,8 @@ const PricingSection: React.FC = () => {
         "Campaign management",
         "Collaboration tools",
       ],
+      iconSrc: "/rocket_icon.png",
+      iconBg: "bg-[#7367f0]/20",
     },
     {
       title: "Enterprise",
@@ -51,6 +59,8 @@ const PricingSection: React.FC = () => {
         "Social media automation",
         "Sales automation tools",
       ],
+      iconSrc: "/rocket_launch_icon.png",
+      iconBg: "bg-[#5E52D6]/20",
     },
   ];
 
@@ -79,7 +89,7 @@ const PricingSection: React.FC = () => {
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold text-[#2f2b3d]/90 dark:text-white">
               <span className="relative inline-block font-extrabold overflow-visible">
-                Tailored pricing plans 
+                Tailored pricing plans
                 <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
               </span>
               <span className="font-medium"> designed for you</span>
@@ -134,6 +144,15 @@ const PricingSection: React.FC = () => {
               transition={{ delay: index * 0.2 }}
             >
               <div className="text-center mb-8">
+                <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center ${plan.iconBg}`}>
+                  <Image
+                    src={plan.iconSrc}
+                    alt={`${plan.title} icon`}
+                    width={64}
+                    height={64}
+                    className="object-contain mix-blend-multiply dark:mix-blend-normal opacity-90"
+                  />
+                </div>
                 <h3 className="text-2xl font-medium text-[#2f2b3d]/90 dark:text-white mb-4">
                   {plan.title}
                 </h3>
@@ -149,9 +168,9 @@ const PricingSection: React.FC = () => {
                 {plan.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2.5">
                     <div
-                      className={`p-0.5 rounded-full ${plan.isPopular ? "bg-[#7367f0]" : "bg-[#7367f0]/20"}`}
+                      className={`flex items-center justify-center w-6 h-6 rounded-full ${plan.isPopular ? "bg-[#7367f0]" : "bg-[#7367f0]/20"}`}
                     >
-                      <div className="w-3 h-3" />
+                      <Check className={plan.isPopular ? "w-4 h-4 text-white" : "w-4 h-4 text-[#7367f0]"} />
                     </div>
                     <span className="text-[#2f2b3d]/90 dark:text-slate-300 text-sm">{feature}</span>
                   </div>
@@ -160,7 +179,7 @@ const PricingSection: React.FC = () => {
 
               <button
                 className={`mt-8 w-full py-2 px-5 rounded-md text-sm font-medium ${plan.isPopular
-                  ? "bg-[#7367f0] text-white shadow-[0px_2px_6px_0px_rgba(115,103,240,0.30)]"
+                  ? "bg-[#7367f0] text-white shadow-[0px_2px_6px_0px_rgba(115,103,240,0.30)]\""
                   : "bg-[#7367f0]/20 text-[#7367f0]"
                   }`}
               >
