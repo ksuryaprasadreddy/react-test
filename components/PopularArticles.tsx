@@ -66,7 +66,7 @@ const PopulatArticles = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto px-4 md:px-6 mt-10">
         {DEFAULT_ITEMS.map((item) => (
           <ArticleCard key={item.id} item={item} />
         ))}
