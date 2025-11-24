@@ -80,7 +80,7 @@ const FAQSection: React.FC = () => {
           <div className="w-full sm:w-[48%] flex justify-center items-start">
             <div className="relative">
               <Image
-                src="/faq_illustration_1763966958464.png"
+                src="/faq-boy-with-logos.png"
                 alt="FAQ Illustration"
                 className="w-full max-w-sm rounded-lg"
                 width={327}
