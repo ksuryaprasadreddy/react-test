@@ -81,24 +81,24 @@ export default function FlowChart() {
     ];
 
     return (
-        <div className="w-full text-center px-6 m-1 py-6">
-           <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
-              <span className="text-[#7367f0] text-sm font-medium">
-                ALTAI
-              </span>
+        <div className="w-full text-center px-6 mt-1 py-6">
+            <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+                <span className="text-[#7367f0] text-sm font-medium">
+                    ALTAI
+                </span>
             </div>
-<h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
-              <span className="relative inline-block overflow-visible">
-                Warranty Administration
-                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
-              </span>
-              <span className="font-medium"> Platform</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
+                <span className="relative inline-block overflow-visible">
+                    Warranty Administration
+                    <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+                </span>
+                <span className="font-medium"> Platform</span>
             </h2>
             <div className="w-full overflow-x-auto">
                 <div className="relative border rounded-xl p-4 min-w-[900px]">
 
                     {/* Vertical line */}
-                    <div className="absolute top-[3%] right-[83%] bottom-[11.3%] border-r border-gray-300"></div>
+                    <div className="absolute top-[3%] right-[83%] bottom-[10%] border-r border-gray-300"></div>
 
                     <div className="flex flex-col space-y-16">
                         {items.map((item, index) => (
@@ -106,7 +106,7 @@ export default function FlowChart() {
 
                                 {/* Label */}
                                 <div className="col-span-1 flex font-bold items-center pl-1 pt-6">
-                                    <span className="text-gray-600">{item.label}</span>
+                                    <span className="text-gray-600 dark:text-white">{item.label}</span>
                                 </div>
 
                                 {/* Small connector */}
@@ -115,18 +115,11 @@ export default function FlowChart() {
                                 {/* Card */}
                                 <div className="col-span-3">
                                     <Card className="shadow-lg border rounded-xl">
-                                        <CardHeader>
-
-                                            {item.description && <CardDescription>{item.description}</CardDescription>}
-                                        </CardHeader>
+                                    
                                         <CardContent>
-                                            <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed">{item.description}</p>
                                         </CardContent>
-                                        {item.footerButtons.length > 0 && (
-                                            <CardFooter className="flex gap-3">
-
-                                            </CardFooter>
-                                        )}
+                                       
                                     </Card>
                                 </div>
                             </div>
