@@ -63,7 +63,7 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
         >
           {title}
         </motion.div>
-        <div className="text-start text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
+        <div className="text-center text-[#2f2b3d]/70 dark:text-slate-400 text-sm">
           {description}
         </div>
       </div>

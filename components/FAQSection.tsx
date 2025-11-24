@@ -40,7 +40,7 @@ const FAQSection: React.FC = () => {
 
   return (
     <section className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
-      <div className="max-w-6xl w-full flex flex-col items-center gap-16">
+      <div className="max-w-7xl w-full flex flex-col items-center gap-16">
         {/* Header Section */}
         <div className="w-full flex flex-col items-center gap-4">
           <motion.div
@@ -82,9 +82,9 @@ const FAQSection: React.FC = () => {
               <Image
                 src="/faq-boy-with-logos.png"
                 alt="FAQ Illustration"
-                className="w-full max-w-sm rounded-lg"
-                width={327}
-                height={255}
+                className="w-full rounded-lg bg-[#f8f7fa] dark:bg-slate-900 mix-blend-multiply dark:mix-blend-normal"
+                width={700}
+                height={400}
               />
               {/* Optional decorative icon */}
               {/* <Image
@@ -111,7 +111,7 @@ const FAQSection: React.FC = () => {
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
                 >
-                  <span className="text-[#2f2b3d]/90 dark:text-slate-200 text-sm font-medium">
+                  <span className="text-[#2f2b3d]/90 dark:text-slate-200 text-sm font-semibold">
                     {item.question}
                   </span>
                   <motion.div
