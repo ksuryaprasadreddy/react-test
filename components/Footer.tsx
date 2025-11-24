@@ -154,8 +154,8 @@ const Footer: React.FC = () => {
       {/* Footer Bottom Section */}
       <div className="bg-[#1a1a1a] dark:bg-slate-900 w-full border-t border-gray-700/50">
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-gray-400 flex items-center gap-1">
-            © 2025 Codon systems Inc, warrenty management platform
+          <div className="text-sm text-gray-400">
+            © 2025 Codon systems Inc, <span className="font-bold">warranty management platform</span>
           </div>
 
           <div className="flex items-center gap-4">

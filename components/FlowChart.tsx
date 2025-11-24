@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-
+import { motion } from "framer-motion";
 export default function FlowChart() {
     // single data array to map through
     const items = [
@@ -81,31 +81,37 @@ export default function FlowChart() {
     ];
 
     return (
-        <div className="w-full text-center px-6 mt-1 py-6">
-            <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
-                <span className="text-[#7367f0] text-sm font-medium">
-                    ALTAI
-                </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
-                <span className="relative inline-block overflow-visible">
-                    Warranty Administration
-                    <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
-                </span>
-                <span className="font-medium"> Platform</span>
-            </h2>
-            <div className="w-full overflow-x-auto mt-10">
-                <div className="relative border rounded-xl p-8">
+        <div className="w-full text-center px-6 m-1">
+            <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+                    <span className="text-[#7367f0] text-sm font-medium">
+                        ALTAI
+                    </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-6">
+                    <span className="relative inline-block overflow-visible">
+                        Warranty Administration
+                        <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+                    </span>
+                    <span className="font-medium"> Platform</span>
+                </h2>
+                <div className="w-full overflow-x-auto mt-10">
+                    <div className="relative border rounded-xl p-8">
 
-                    {/* Vertical line – centered & responsive */}
-                    <div className="hidden md:block absolute left-1/4 top-0 bottom-0 border-r border-gray-300"></div>
+                        {/* Vertical line – centered & responsive */}
+                        <div className="hidden md:block absolute left-1/4 top-0 bottom-0 border-r border-gray-300"></div>
 
-                    <div className="flex flex-col space-y-10">
-                        {items.map((item, index) => (
-                            <div key={index} className="relative md:grid md:grid-cols-4 items-start">
+                        <div className="flex flex-col space-y-10">
+                            {items.map((item, index) => (
+                                <div key={index} className="relative md:grid md:grid-cols-4 items-start">
 
                                 {/* Label */}
-                                <div className="col-span-1 font-bold mt-">
+                                <div className="col-span-1 font-bold mt-4">
                                     <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
                                 </div>
 
@@ -132,7 +138,8 @@ export default function FlowChart() {
                     </div>
                 </div>
 
-            </div>
+                </div>
+            </motion.div>
         </div>
     );
 }

@@ -39,7 +39,7 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full px-1 py-12 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+    <section className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
       <div className="max-w-6xl w-full flex flex-col items-center gap-16">
         {/* Header Section */}
         <div className="w-full flex flex-col items-center gap-4">

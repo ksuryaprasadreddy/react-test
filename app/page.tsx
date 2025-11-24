@@ -183,7 +183,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative w-full py-8 md:py-4 bg-[radial-gradient(ellipse_at_center,_#E0D8FF_0%,_#FCE5E6_100%)] dark:bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#2a1a2a_100%)] rounded-b-[5rem]"
+        className="relative w-full py-8 md:py-4 bg-[radial-gradient(ellipse_at_center,_#C6B8FF_0%,_#FCE5E6_100%)] dark:bg-[radial-gradient(ellipse_at_center,_#1a1a2e_0%,_#2a1a2a_100%)] rounded-b-[5rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -197,9 +197,10 @@ export default function HomePage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-4xl md:text-[42px] font-black leading-tight bg-[linear-gradient(90deg,#3B82F6_0%,#7367F0_20%,#7367F0_80%,#FF66B2_100%)] text-transparent bg-clip-text max-w-4xl mx-auto drop-shadow-xl">
+            <h1 className="text-4xl md:text-[42px] font-black leading-tight bg-[linear-gradient(90deg,#2563EB_0%,#2563EB_15%,#7C4DFF_30%,#6A3FF0_80%,#DB2777_100%)] text-transparent bg-clip-text max-w-4xl mx-auto drop-shadow-xl">
               A comprehensive platform for managing Service contracts and Extended warranties
             </h1>
+
             <div className="text-[rgba(47,43,61,0.90)] dark:text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
               A digital solution designed to Streamline and automate the process of managing extended warranties, service contracts, and other post-purchase protection plans.
             </div>
@@ -235,7 +236,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 md:py-24 mt-20 md:mt-80">
+      <section id="features" className="py-24 md:py-24 mt-20 md:mt-80">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -276,11 +277,11 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section Placeholder */}
-      <section id="solutions" className="py-16 md:py-24">
-       <FlowChart/>
+      <section id="solutions" className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+        <FlowChart />
       </section>
 
-      {/* <section id="industries" className="py-16 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
+      {/* <section id="industries" className="py-24 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col text-center gap-8 lg:gap-14">
             
@@ -455,7 +456,7 @@ export default function HomePage() {
       </section>
 
       {/* Technologies Section Placeholder */}
-      <section id="technologies" className="py-16 md:py-24">
+      <section id="technologies" className="py-24 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
             <span className="text-[#7367f0] text-sm font-medium">

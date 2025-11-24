@@ -58,7 +58,7 @@ const DEFAULT_ITEMS = [
 
 const PopulatArticles = () => {
   return (
-    <div id="industries" className="max-w-7xl mx-auto px-4 md:px-6 m-10 text-center">
+    <div id="industries" className="max-w-7xl mx-auto px-4 md:px-6 m-10 text-center py-24 md:py-24">
 
       {/* <h1 className="text-3xl font-bold text-center">Industries</h1> */}
       <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">

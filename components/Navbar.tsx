@@ -94,9 +94,9 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   onClick={(e) => handleScrollTo(e, item.href)}
-                  className={`px-2.5 py-0 rounded-md flex items-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-colors
+                  className={`px-2.5 py-0 rounded-md flex items-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300
                   ${activeLink === item.name
-                      ? "text-[#7367F0] dark:text-[#7367F0]"
+                      ? "text-[#7367F0] dark:text-[#7367F0] scale-110"
                       : "text-[#2F2B3D]/90 dark:text-slate-200"
                     }`}
                 >
@@ -166,54 +166,40 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`lg:hidden mt-4 pb-4 ${isMenuOpen ? "block" : "hidden"}`}>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
           {navItems.map((item) => (
-            <div key={item.name}>
+            <div key={item.name} className="w-full flex justify-center">
               <Link
                 href={item.href}
-                className={`px-2.5 py-2 rounded-md flex items-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-colors
-                  ${item.name === "Home"
-                    ? "text-[#7367F0] dark:text-[#7367F0]"
+                className={`px-2.5 py-2 rounded-md flex items-center justify-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300 w-full max-w-[200px]
+                  ${activeLink === item.name
+                    ? "text-[#7367F0] dark:text-[#7367F0] scale-110"
                     : "text-[#2F2B3D]/90 dark:text-slate-200"
                   }`}
               >
                 {item.name}
-                {/* {item.subItems && (
-                  <svg
-                    className="w-4 h-4"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 6L8 10L12 6"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )} */}
               </Link>
-              {/* Mobile Dropdown Items */}
-              {/* {item.subItems && (
-                <div className="pl-6 mt-2 flex flex-col gap-2">
-                  {item.subItems.map((subItem) => (
-                    <Link
-                      key={subItem.name}
-                      href={subItem.href}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#7367F0] dark:hover:text-[#7367F0] transition-colors"
-                    >
-                      {subItem.name}
-                    </Link>
-                  ))}
-                </div>
-              )} */}
             </div>
           ))}
           {/* Mobile Action Buttons */}
-          <div className="flex flex-col gap-4 pt-4 border-t border-gray-200">
-            <button className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors">
+          <div className="flex flex-col gap-4 pt-4 border-t border-gray-200 w-full items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+            >
+              {mounted ? (
+                theme === "dark" ? (
+                  <MdWbSunny className="w-6 h-6 text-yellow-500 transition-all" />
+                ) : (
+                  <MdNightsStay className="w-6 h-6 text-[#2F2B3D]/90 transition-all" />
+                )
+              ) : (
+                <div className="w-5 h-5" />
+              )}
+            </Button>
+            <button className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors w-full max-w-[200px]">
               <LogIn className="w-5 h-5" />
               <span className="text-[15px] font-medium capitalize">
                 Sign In
