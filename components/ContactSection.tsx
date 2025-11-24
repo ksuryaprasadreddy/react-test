@@ -12,6 +12,7 @@ interface ContactFormData {
 }
 
 const ContactSection: React.FC = () => {
+  console.log("Rendering ContactSection");
   const [formData, setFormData] = useState<ContactFormData>({
     companyName: "",
     name: "",
