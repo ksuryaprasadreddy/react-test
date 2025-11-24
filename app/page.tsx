@@ -360,9 +360,9 @@ export default function HomePage() {
       >
         <TeamSection />
       </motion.section> */}
-      {/* <section className="min-h-screen min-w-screen">
+      <section className="min-h-screen min-w-screen">
         <PricingSection />
-      </section> */}
+      </section>
       {/* <section>
         <div className="w-full p-6 flex flex-col items-center">
           <div className="w-full max-w-[1140px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
