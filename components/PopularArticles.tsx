@@ -57,9 +57,14 @@ const DEFAULT_ITEMS = [
 
 const PopulatArticles = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 m-10">
-        
-      <h1 className="text-3xl font-bold text-center">Industries</h1>
+    <div id="industries" className="max-w-7xl mx-auto px-4 md:px-6 m-10 text-center">
+
+      {/* <h1 className="text-3xl font-bold text-center">Industries</h1> */}
+      <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+        <span className="text-[#7367f0] text-sm font-medium">
+          Industries
+        </span>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         {DEFAULT_ITEMS.map((item) => (
@@ -82,32 +87,31 @@ const ArticleCard = ({ item }) => {
     <Card className="rounded-xl p-6 flex flex-col items-center text-center">
 
       <CardHeader className="flex flex-col items-center space-y-4 p-0">
-        
-        
-        <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-gray-100">
-          <Icon size={32} className="text-gray-500" />
+
+
+        <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-[#7367f0]/10">
+          <Icon size={32} className="text-[#7367f0]" />
         </div>
 
-        
+
         <CardTitle className="text-lg">{item.title}</CardTitle>
 
-        
+
         <CardDescription
-          className={`text-gray-600 transition-all ${
-            expanded ? "line-clamp-none" : "line-clamp-2"
-          }`}
+          className={`text-gray-600 transition-all ${expanded ? "line-clamp-none" : "line-clamp-2"
+            }`}
         >
           {item.description}
         </CardDescription>
 
       </CardHeader>
 
-      
+
       {item.description.length > 40 && (
         <CardFooter className="p-0 mt-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="px-4 py-2 rounded-lg text-purple-600 bg-purple-100/50 hover:bg-purple-200 transition"
+            className="px-4 py-2 rounded-lg text-[#7367f0] bg-[#7367f0]/10 hover:bg-[#7367f0]/20 transition"
           >
             {expanded ? "Read less" : "Read more..."}
           </button>
