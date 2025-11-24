@@ -59,7 +59,7 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
       <h3 className="text-xl font-semibold text-[#2f2b3d]/90 dark:text-white text-center">
         {title}
       </h3>
-      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-xs">
+      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-sm">
         {description}
       </p>
     </motion.div>
@@ -258,7 +258,7 @@ export default function HomePage() {
             </p> */}
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap gap-6">
             {features.map((feature, index) => (
               <FeatureCard
                 key={index}
