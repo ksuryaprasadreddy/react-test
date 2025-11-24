@@ -10,7 +10,7 @@ import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, 
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "../components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
 import FlowChart from "@/components/FlowChart";
@@ -468,7 +468,7 @@ export default function HomePage() {
         <FAQSection />
       </section>
       <section className="flex flex-col lg:flex-row items-center justify-between w-full min-h-[40vh] h-auto bg-gradient-to-r from-pink-300 via-purple-300 to-[#7367f0] py-10 lg:py-0">
-        <div className="flex justify-center lg:w-1/2 px-4 text-center lg:text-left mb-8 lg:mb-0">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-10 flex justify-center  text-center lg:text-left mb-8 lg:mb-0">
           <div>
             <h2 className="text-[#7367f0] text-3xl sm:text-4xl font-bold leading-tight mb-4">
               Ready to Get Started?
