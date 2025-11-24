@@ -1,55 +1,54 @@
 import { useState } from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./ui/card"
-
-import {
-  Car,
-  Truck,
-  Bike,
-  Caravan,
-  Ship,
-  Dumbbell,
-} from "lucide-react";
+import car  from "../public/car.jpg"
+import marine from "../public/marine.jpg"
+import rvs from "../public/rvs.jpg"
+import truck from "../public/truck.jpg"
+import power from "../public/power.jpg"
+import heavy from "../public/heavy.jpg"
+import Image from "next/image"
 import { motion } from "framer-motion";
+
 
 const DEFAULT_ITEMS = [
   {
     id: 1,
-    icon: Car,
+    icon: car,
     title: "Automobile",
     description:
       "A departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
   },
   {
     id: 2,
-    icon: Truck,
+    icon: truck,
     title: "Trucks",
     description:
       "Hostile and aggressiveA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
   },
   {
     id: 3,
-    icon: Bike,
+    icon: power,
     title: "Powersports",
     description:
       "Giving a lot of information clearly and in a few wordsA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
   },
   {
     id: 4,
-    icon: Caravan,
+    icon: rvs,
     title: "Rvs",
     description:
       "Giving a lot of information clearly and in a few wordsA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
   },
   {
     id: 5,
-    icon: Ship,
+    icon: marine,
     title: "Marine",
     description:
       "Giving a lot of information clearly and in a few wordsA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
   },
   {
     id: 6,
-    icon: Dumbbell,
+    icon: heavy,
     title: "Heavy Duty",
     description:
       "Giving a lot of information clearly and in a few wordsA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expectedA departure from what is normal, usual, or expected...",
@@ -80,9 +79,11 @@ export default PopulatArticles
 
 
 
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 type ArticleItem = {
   id: number;
-  icon: React.ElementType;
+  icon: StaticImport;
   title: string;
   description: string;
 };
@@ -104,9 +105,17 @@ const ArticleCard = ({ item }: { item: ArticleItem }) => {
       <CardHeader className="flex flex-col items-center space-y-4 p-0">
 
 
-        <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-[#7367f0]/10">
-          <Icon size={32} className="text-[#7367f0]" />
-        </div>
+       
+          <div className="w-[200px] h-[200px] flex items-center justify-center">
+            <Image
+                src={item.icon}
+                width={200}
+                height={200}
+                alt={item.title}
+                className="object-contain"
+            />
+            </div>
+        
 
 
         <CardTitle className="text-lg">
@@ -136,9 +145,9 @@ const ArticleCard = ({ item }: { item: ArticleItem }) => {
         <CardFooter className="p-0 mt-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="px-4 py-2 rounded-lg text-[#7367f0] bg-[#7367f0]/10 hover:bg-[#7367f0]/20 transition"
+            className="px-4 py-2 rounded-lg text-[#7367f0] bg-[#7367f0]/10 hover:bg-[#7367f0]/20 transition font-bold"
           >
-            {expanded ? "Read less" : "Read more..."}
+            {expanded ? "Read less" : "Read more"}
           </button>
         </CardFooter>
       )}
