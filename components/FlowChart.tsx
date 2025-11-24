@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-
+import { motion } from "framer-motion";
 export default function FlowChart() {
     // single data array to map through
     const items = [
@@ -81,53 +81,65 @@ export default function FlowChart() {
     ];
 
     return (
-        <div className="w-full text-center px-6 mt-1 py-6">
-            <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
-                <span className="text-[#7367f0] text-sm font-medium">
-                    ALTAI
-                </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
-                <span className="relative inline-block overflow-visible">
-                    Warranty Administration
-                    <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
-                </span>
-                <span className="font-medium"> Platform</span>
-            </h2>
-            <div className="w-full overflow-x-auto">
-                <div className="relative border rounded-xl p-4 min-w-[900px]">
+        <div className="w-full text-center px-6 m-1">
+            <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+                    <span className="text-[#7367f0] text-sm font-medium">
+                        ALTAI
+                    </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-6">
+                    <span className="relative inline-block overflow-visible">
+                        Warranty Administration
+                        <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+                    </span>
+                    <span className="font-medium"> Platform</span>
+                </h2>
+                <div className="w-full overflow-x-auto mt-10">
+                    <div className="relative border rounded-xl p-8">
 
-                    {/* Vertical line */}
-                    <div className="absolute top-[3%] right-[83%] bottom-[10%] border-r border-gray-300"></div>
+                        {/* Vertical line – centered & responsive */}
+                        <div className="hidden md:block absolute left-1/4 top-0 bottom-0 border-r border-gray-300"></div>
 
-                    <div className="flex flex-col space-y-16">
-                        {items.map((item, index) => (
-                            <div key={index} className="relative grid grid-cols-4 items-start">
+                        <div className="flex flex-col space-y-10">
+                            {items.map((item, index) => (
+                                <div key={index} className="relative md:grid md:grid-cols-4 items-start">
 
                                 {/* Label */}
-                                <div className="col-span-1 flex font-bold items-center pl-1 pt-6">
-                                    <span className="text-gray-600 dark:text-white">{item.label}</span>
+                                <div className="col-span-1 font-bold mt-4">
+                                    <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
                                 </div>
 
-                                {/* Small connector */}
-                                <div className="absolute left-[230px] top-[20%] -translate-y-1/2 w-10 border-t border-gray-300"></div>
+
+                                {/* Connector hyphen line */}
+                                <div className="hidden md:block absolute left-1/4 transform -translate-x-1/2 top-8">
+                                    <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
+                                </div>
 
                                 {/* Card */}
-                                <div className="col-span-3">
-                                    <Card className="shadow-lg border rounded-xl">
-                                    
+                                <div className="col-span-3 md:pl-8">
+                                    <Card className="shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
                                         <CardContent>
-                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed">{item.description}</p>
+                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
+                                                {item.description}
+                                            </p>
                                         </CardContent>
-                                       
                                     </Card>
                                 </div>
+
+
                             </div>
                         ))}
                     </div>
+                </div>
 
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }
