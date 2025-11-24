@@ -18,23 +18,24 @@ const Footer: React.FC = () => {
 
   const sections: FooterLinksSection[] = [
     {
-      title: "Pages",
+      title: "Menu Items",
       links: [
-        { text: "Pricing", href: "/pricing" },
-        { text: "Payment", href: "/payment", isNew: true },
-        { text: "Maintenance", href: "/maintenance" },
-        { text: "Coming Soon", href: "/coming-soon" },
+        { text: "Features", href: "#features" },
+        { text: "Solutions", href: "#solutions" },
+        { text: "Industries", href: "#industries" },
+        { text: "Technologies", href: "#technologies" },
+        { text: "Contact Us", href: "#contact" },
       ],
     },
-    {
-      title: "Products",
-      links: [
-        { text: "Page Builder", href: "/page-builder" },
-        { text: "Admin Dashboards", href: "/admin-dashboards" },
-        { text: "UI Kits", href: "/ui-kits" },
-        { text: "Illustrations", href: "/illustrations" },
-      ],
-    },
+    // {
+    //   title: "Products",
+    //   links: [
+    //     { text: "Contract", href: "/page-builder" },
+    //     { text: "Admin Dashboards", href: "/admin-dashboards" },
+    //     { text: "UI Kits", href: "/ui-kits" },
+    //     { text: "Illustrations", href: "/illustrations" },
+    //   ],
+    // },
   ];
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -48,18 +49,22 @@ const Footer: React.FC = () => {
       {/* Main Footer Section */}
       <div className="bg-[#2F2B3D] dark:bg-slate-950 text-white px-6 md:px-16 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 justify-items-center">
             {/* Brand Section */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
                 <Image src="/codonlogo.png" alt="logo" width={20} height={30} />
-                <span className="text-xl font-semibold">Codon Systems Inc.</span>
+                <span className="text-xl font-semibold">Codon Systems Inc</span>
               </div>
 
-              <p className="text-gray-400 text-sm">
-                Most developer friendly & highly customisable Admin Dashboard
-                Template.
-              </p>
+              <div className="flex flex-col gap-2">
+                <p className="text-gray-400 text-sm">
+                  Most user friendly & highly customizable Administration and Sales platform for extended warranties.
+                </p>
+                <a href="mailto:info@codonsystems.com" className="text-[#7367F0] text-sm hover:underline">
+                  info@codonsystems.com
+                </a>
+              </div>
 
               <div className="space-y-2">
                 <p className="text-sm text-gray-400">Subscribe to newsletter</p>
@@ -150,9 +155,7 @@ const Footer: React.FC = () => {
       <div className="bg-[#1a1a1a] dark:bg-slate-900 w-full border-t border-gray-700/50">
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-400 flex items-center gap-1">
-            © 2024 Pixinvent, Made with
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
-            for a better web.
+            © 2025 Codon systems Inc, warrenty management platform
           </div>
 
           <div className="flex items-center gap-4">

@@ -39,8 +39,8 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full px-6 py-12 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
-      <div className="max-w-4xl w-full flex flex-col items-center gap-16">
+    <section className="w-full px-1 py-12 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+      <div className="max-w-6xl w-full flex flex-col items-center gap-16">
         {/* Header Section */}
         <div className="w-full flex flex-col items-center gap-4">
           <motion.div
@@ -75,12 +75,12 @@ const FAQSection: React.FC = () => {
         </div>
 
         {/* FAQ Cards Section */}
-        <div className="flex flex-wrap justify-between gap-4 w-full">
+        <div className="flex flex-wrap justify-between items-center gap-6 w-full">
           {/* Left Image Section */}
           <div className="w-full sm:w-[48%] flex justify-center items-start">
             <div className="relative">
               <Image
-                src="https://via.placeholder.com/327x255"
+                src="/faq_illustration_1763966958464.png"
                 alt="FAQ Illustration"
                 className="w-full max-w-sm rounded-lg"
                 width={327}
