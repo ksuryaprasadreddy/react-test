@@ -9,6 +9,7 @@ import {
   Ship,
   Dumbbell,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const DEFAULT_ITEMS = [
   {
@@ -79,11 +80,25 @@ export default PopulatArticles
 
 
 
-const ArticleCard = ({ item }) => {
+type ArticleItem = {
+  id: number;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+};
+
+const ArticleCard = ({ item }: { item: ArticleItem }) => {
   const [expanded, setExpanded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
   const Icon = item.icon
 
   return (
+    <motion.div
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.25 }}
+  onHoverStart={() => setIsHovered(true)}
+  onHoverEnd={() => setIsHovered(false)}
+>
     <Card className="rounded-xl p-6 flex flex-col items-center text-center">
 
       <CardHeader className="flex flex-col items-center space-y-4 p-0">
@@ -94,11 +109,21 @@ const ArticleCard = ({ item }) => {
         </div>
 
 
-        <CardTitle className="text-lg">{item.title}</CardTitle>
+        <CardTitle className="text-lg">
+            <motion.div
+          className="text-center text-lg font-medium leading-7"
+          animate={{
+            color: isHovered ? "#7367f0" : "var(--foreground)",
+          }}
+        >
+          {item.title}
+        </motion.div>
+            
+            </CardTitle>
 
 
         <CardDescription
-          className={`text-gray-600 transition-all ${expanded ? "line-clamp-none" : "line-clamp-2"
+          className={`text-gray-600 transition-all dark:text-slate-400 ${expanded ? "line-clamp-none" : "line-clamp-2" 
             }`}
         >
           {item.description}
@@ -119,5 +144,6 @@ const ArticleCard = ({ item }) => {
       )}
 
     </Card>
+    </motion.div>
   )
 }

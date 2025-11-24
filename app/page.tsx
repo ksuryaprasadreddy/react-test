@@ -111,7 +111,6 @@ const TestimonialCard = ({
 );
 
 export default function HomePage() {
-
   const features: Feature[] = [
     {
       title: "Cloud Platform",
@@ -180,6 +179,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col min-h-screen">
+      
       {/* Hero Section */}
       <motion.section
         id="home"
