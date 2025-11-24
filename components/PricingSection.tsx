@@ -74,7 +74,7 @@ const PricingSection: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-4 py-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-3xl">
+    <div className="px-4 py-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-3xl">
       <motion.div
         className="flex flex-col items-center gap-16"
         initial="initial"
@@ -135,7 +135,7 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto px-4 md:px-6 mt-10">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.title}
