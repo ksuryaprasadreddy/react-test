@@ -11,6 +11,8 @@ import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import PopulatArticles from "@/components/PopularArticles";
+import FlowChart from "@/components/CardsPlace";
 
 const MotionButton = motion(Button);
 
@@ -441,6 +443,9 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
+      </section>
+      <section>
+        <PopulatArticles />
       </section>
       <section>
         <FAQSection />
