@@ -81,7 +81,7 @@ export default function FlowChart() {
     ];
 
     return (
-        <div className="w-full text-center px-6 m-1">
+        <div className="text-center px-10 m-1">
             <motion.div
                 className="text-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function FlowChart() {
                     </span>
                     <span className="font-medium"> Platform</span>
                 </h2>
-                <div className="w-full overflow-x-auto mt-10">
+                <div className="overflow-x-auto mt-10">
                     <div className="relative border rounded-xl p-8">
 
                         {/* Vertical line – centered & responsive */}
@@ -122,7 +122,7 @@ export default function FlowChart() {
                                 </div>
 
                                 {/* Card */}
-                                <div className="col-span-3 md:pl-8">
+                                <div className="col-span-1 md:pl-8">
                                     <Card className="shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
                                         <CardContent>
                                             <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
