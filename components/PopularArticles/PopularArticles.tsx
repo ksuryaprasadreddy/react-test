@@ -57,7 +57,7 @@ const DEFAULT_ITEMS = [
 
 const PopulatArticles = () => {
   return (
-    <div id="industries" className="max-w-7xl mx-auto px-4 md:px-6 text-center py-16 md:pt-24">
+    <div id="industries" className="max-w-7xl mx-auto px-4 md:px-6 text-center py-16 md:py-16">
 
       {/* <h1 className="text-3xl font-bold text-center">Industries</h1> */}
       <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
@@ -66,7 +66,7 @@ const PopulatArticles = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto px-4 md:px-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto px-4 md:px-6 mt-10">
         {DEFAULT_ITEMS.map((item) => (
           <ArticleCard key={item.id} item={item} />
         ))}
@@ -106,15 +106,17 @@ const ArticleCard = ({ item }: { item: ArticleItem }) => {
 
 
        
-          <div className="w-[200px] h-[200px] flex items-center justify-center">
-            <Image
-                src={item.icon}
-                width={200}
-                height={200}
-                alt={item.title}
-                className="object-contain"
-            />
-            </div>
+          <div className="w-full h-[180px] flex items-center justify-center overflow-hidden">
+  <Image
+    src={item.icon}
+    alt={item.title}
+    width={300}
+    height={300}
+    className="object-contain w-auto h-full"
+  />
+</div>
+
+
         
 
 
@@ -132,7 +134,7 @@ const ArticleCard = ({ item }: { item: ArticleItem }) => {
 
 
         <CardDescription
-          className={`text-gray-600 transition-all dark:text-slate-400 ${expanded ? "line-clamp-none" : "line-clamp-2" 
+          className={`text-gray-600 transition-all dark:text-slate-400 break-words ${expanded ? "line-clamp-none" : "line-clamp-2" 
             }`}
         >
           {item.description}
