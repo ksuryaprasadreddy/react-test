@@ -58,11 +58,11 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
         </motion.div>
       </div>
       <motion.div
-      animate={{color: isHovered ? "#7367f0" : "var(--foreground)",}}>
+        animate={{ color: isHovered ? "#7367f0" : "var(--foreground)", }}>
 
-      <h3 className="text-xl font-semibold min-h-[3.3rem] text-center">
-        {title}
-      </h3>
+        <h3 className="text-xl font-semibold min-h-[3.3rem] text-center">
+          {title}
+        </h3>
       </motion.div>
       <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-justify leading-relaxed max-w-sm">
         {description}
@@ -367,7 +367,7 @@ export default function HomePage() {
       >
         <TeamSection />
       </motion.section> */}
-      <section className="min-h-screen">
+      <section>
         <PricingSection />
       </section>
       {/* <section>
@@ -452,7 +452,7 @@ export default function HomePage() {
           </div>
         </div>
       </section> */}
-      <section className = "bg-[#f8f7fa] dark:bg-slate-900">
+      <section className="bg-[#f8f7fa] dark:bg-slate-900">
         <PopulatArticles />
       </section>
 
@@ -460,16 +460,16 @@ export default function HomePage() {
       <section id="technologies" className="py-16 md:pt-24 dark:bg-slate-900">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block mb-4">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="px-2.5 py-0.5 bg-[#7367f0]/20 rounded"
-        >
-            <span className="text-[#7367f0] text-sm font-medium">
-              Technologies
-            </span>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="px-2.5 py-0.5 bg-[#7367f0]/20 rounded"
+            >
+              <span className="text-[#7367f0] text-sm font-medium">
+                Technologies
+              </span>
+            </motion.div>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
             Cutting-edge Technologies

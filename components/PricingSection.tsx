@@ -74,7 +74,7 @@ const PricingSection: React.FC = () => {
   };
 
   return (
-    <div className="px-4 py-16 md:py-24 dark:bg-slate-900 rounded-3xl">
+    <div className="px-4 py-16 dark:bg-slate-900 rounded-3xl">
       <motion.div
         className="flex flex-col items-center gap-16"
         initial="initial"
