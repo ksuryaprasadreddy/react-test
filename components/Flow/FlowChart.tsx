@@ -81,71 +81,88 @@ export default function FlowChart() {
     ];
 
     return (
-        <div className="w-full md:w-[75%] text-center px-4 md:px-6 mx-auto">
+        <div className="flex justify-center w-full">
 
-
-            <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded ">
-                    <span className="text-[#7367f0] text-sm font-medium">
-                        ALTAI
-                    </span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white">
-                    <span className="relative inline-block overflow-visible">
-                        Warranty Administration
-                        <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
-                    </span>
-                    <span className="font-medium"> Platform</span>
-                </h2>
-                <div className="w-full overflow-x-auto mt-5">
-                    <div className="relative border rounded-xl p-1 lg:p-8">
-
-
-
-                        {/* Vertical line – centered & responsive */}
-                        <div className="hidden md:block absolute left-1/4 top-0 bottom-0 border-r border-gray-300"></div>
-
-                        <div className="flex flex-col space-y-10">
-                            {items.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="relative flex flex-col md:grid md:grid-cols-4 md:items-start gap-4"
-                                >
-                                    {/* Label */}
-                                    <div className="font-bold text-center md:col-span-1">
-                                        <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
-                                    </div>
-
-                                    {/* Connector line (desktop only) */}
-                                    <div className="hidden md:block absolute left-1/4 transform -translate-x-1/2 top-8">
-                                        <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
-                                    </div>
-
-                                    {/* Card */}
-                                    <div className="w-full md:col-span-2 md:pl-8">
-
-                                        <Card className="w-full shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
-                                            <CardContent>
-                                                <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
-                                                    {item.description}
-                                                </p>
-                                            </CardContent>
-                                        </Card>
-                                    </div>
-                                </div>
-
-                            ))}
-                        </div>
+            <div className="w-full md:w-[75%] text-center mx-auto">
+                <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-3">
+                        <span className="text-[#7367f0] text-sm font-medium">
+                            ALTAI
+                        </span>
                     </div>
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white">
+                        <span className="relative inline-block overflow-visible">
+                            Warranty Administration
+                            <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
+                        </span>
+                        <span className="font-medium"> Platform</span>
+                    </h2>
+                    <div className="w-full overflow-x-auto mt-10">
+                        <div className="relative border rounded-xl p-1 lg:p-8 mx-auto">
 
-                </div>
-            </motion.div>
+                            {/* Vertical line – centered & responsive */}
+                            <div className="hidden md:block absolute left-[34.5%] top-0 bottom-0 border-r border-gray-300"></div>
+
+                            <div className="flex flex-col md:space-y-6">
+                                {items.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="relative flex flex-col md:flex-row md:items-start gap-4"
+                                    >
+                                        {/* Label */}
+                                        <div className="w-full md:w-1/4 text-center md:text-right">
+                                            <span className="font-bold text-gray-700 dark:text-gray-100 block mt-5">
+                                                {item.label}
+                                            </span>
+                                        </div>
+
+
+                                        {/* Connector line */}
+                                        <div className="hidden md:block absolute left-[35%] transform -translate-x-1/2 top-8">
+                                            <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
+                                        </div>
+
+                                        {/* Card */}
+                                        <div className="w-full md:ml-20 md:pl-20 md:w-[45%]">
+                                          <Card
+  className="
+    w-full shadow-lg border rounded-xl transition-all duration-300
+    hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]
+
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:h-full
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:w-[118%]
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:flex
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:justify-center
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:relative
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:left-[20px]
+    [@media(min-width:768px)]:[@media(max-width:1000px)]:ml-[-32px]
+  "
+>
+
+                                                <CardContent>
+                                                    <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
+                                                        {item.description}
+                                                    </p>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </div>
+
+
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                </motion.div>
+            </div>
         </div>
     );
 }
+
 
