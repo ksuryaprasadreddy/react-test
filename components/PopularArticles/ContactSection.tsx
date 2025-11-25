@@ -99,9 +99,9 @@ const ContactSection: React.FC = () => {
           >
             <div className="mx-2 sm:mx-0 relative aspect-video bg-gray-100 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10">
               {/* Dotted Lines Decoration */}
-              <div className="absolute -top-6  -left-[20px] sm:-left-6   w-[calc(20%+24px)] h-[calc(40%+24px)] rounded-tl-[72px] border-t-2 border-l-2 border-dashed border-[#7367f0]/60 pointer-events-none" />
-              <div className="absolute -top-9 -left-[28px] sm:-left-9  w-[calc(20%+48px)] h-[calc(40%+48px)] rounded-tl-[84px] border-t-2 border-l-2 border-dashed border-[#7367f0]/40 pointer-events-none" />
-              <div className="absolute -top-12 -left-[34px] sm:-left-12  w-[calc(20%+72px)] h-[calc(40%+72px)] rounded-tl-[96px] border-t-2 border-l-2 border-dashed border-[#7367f0]/20 pointer-events-none" />
+              <div className="absolute -top-6  -left-[20px] sm:-left-6   w-[calc(20%+24px)] h-[calc(20%+24px)] rounded-tl-[72px] border-t-2 border-l-2 border-dashed border-[#7367f0]/60 pointer-events-none" />
+              <div className="absolute -top-9 -left-[28px] sm:-left-9  w-[calc(20%+48px)] h-[calc(20%+48px)] rounded-tl-[84px] border-t-2 border-l-2 border-dashed border-[#7367f0]/40 pointer-events-none" />
+              <div className="absolute -top-12 -left-[34px] sm:-left-12  w-[calc(20%+72px)] h-[calc(20%+72px)] rounded-tl-[96px] border-t-2 border-l-2 border-dashed border-[#7367f0]/20 pointer-events-none" />
 
               {/* Map or image placeholder */}
               <img
