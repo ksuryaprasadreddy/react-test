@@ -70,7 +70,7 @@ export default function ChatBot() {
 
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
             {isOpen && (
-                <div className="w-80 h-96 bg-white rounded-lg shadow-xl border border-gray-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <div className="w-80 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
                     {/* Header */}
                     <div className="bg-[#7367F0] p-4 flex justify-between items-center text-white">
                         <h3 className="font-medium">Chat Support</h3>
@@ -83,7 +83,7 @@ export default function ChatBot() {
                     </div>
 
                     {/* Messages */}
-                    <div ref={messagesEndRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                    <div ref={messagesEndRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950">
                         {messages.map((msg) => (
                             <div
                                 key={msg.id}
@@ -93,7 +93,7 @@ export default function ChatBot() {
                                 <div
                                     className={`max-w-[80%] p-3 rounded-lg text-sm ${msg.sender === "user"
                                         ? "bg-[#7367F0] text-white rounded-br-none"
-                                        : "bg-white text-gray-800 shadow-sm border border-gray-100 rounded-bl-none"
+                                        : "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-sm border border-gray-100 dark:border-gray-700 rounded-bl-none"
                                         }`}
                                 >
                                     {msg.text}
@@ -103,13 +103,13 @@ export default function ChatBot() {
                     </div>
 
                     {/* Input */}
-                    <form onSubmit={handleSend} className="p-3 bg-white border-t border-gray-100 flex gap-2">
+                    <form onSubmit={handleSend} className="p-3 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 flex gap-2">
                         <input
                             type="text"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             placeholder="Type a message..."
-                            className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:border-[#7367F0] focus:ring-1 focus:ring-[#7367F0]"
+                            className="flex-1 px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:border-[#7367F0] focus:ring-1 focus:ring-[#7367F0] bg-white dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-400"
                         />
                         <Button
                             type="submit"
