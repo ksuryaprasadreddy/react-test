@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbarfootertheme/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,14 +9,12 @@ import { Star, Laptop, User, Diamond, BadgeCheck, ShoppingCart } from "lucide-re
 import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, MdOutlineHeadsetMic } from "react-icons/md";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import ContactSection from "../components/ContactSection";
-import Footer from "@/components/Footer";
-import PopulatArticles from "@/components/PopularArticles";
-import FlowChart from "@/components/FlowChart";
+import FAQSection from "@/components/navbarfootertheme/FAQSection";
+import ContactSection from "../components/PopularArticles/ContactSection";
+import Footer from "@/components/navbarfootertheme/Footer";
+import PopulatArticles from "@/components/PopularArticles/PopularArticles";
+import FlowChart from "@/components/Flow/FlowChart";
 import ChatBot from "@/components/ChatBot/ChatBot";
-
-
 
 
 const MotionButton = motion(Button);
@@ -59,10 +57,14 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
           <Icon className="w-8 h-8 text-[#7367f0]" />
         </motion.div>
       </div>
-      <h3 className="text-xl font-semibold text-[#2f2b3d]/90 dark:text-white text-center">
+      <motion.div
+      animate={{color: isHovered ? "#7367f0" : "var(--foreground)",}}>
+
+      <h3 className="text-xl font-semibold min-h-[3.3rem] text-center">
         {title}
       </h3>
-      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-sm">
+      </motion.div>
+      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-justify leading-relaxed max-w-sm">
         {description}
       </p>
     </motion.div>
@@ -224,18 +226,18 @@ export default function HomePage() {
             transition={{ delay: 0.5 }}
           >
             <Image
-              src="/dashboardSS.png"
+              src="/Dashboard.png"
               alt="dashboard"
-              width={900}
-              height={700}
-              className="rounded-[0.5rem] w-full max-w-4xl shadow-2xl"
+              width={700}
+              height={300}
+              className="rounded-[0.5rem] shadow-2xl"
             />
           </motion.div>
         </div>
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 md:py-24 mt-20 md:mt-80">
+      <section id="features" className="py-16 md:pt-24 mt-20 md:mt-80">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -276,11 +278,11 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section Placeholder */}
-      <section id="solutions" className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+      <section id="solutions" className="w-full px-1 py-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
         <FlowChart />
       </section>
 
-      {/* <section id="industries" className="py-24 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
+      {/* <section id="industries" className="pt-24 md:pt-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col text-center gap-8 lg:gap-14">
             
@@ -450,17 +452,24 @@ export default function HomePage() {
           </div>
         </div>
       </section> */}
-      <section>
+      <section className = "bg-[#f8f7fa] dark:bg-slate-900">
         <PopulatArticles />
       </section>
 
       {/* Technologies Section Placeholder */}
-      <section id="technologies" className="py-24 md:py-24">
+      <section id="technologies" className="py-16 md:pt-24 dark:bg-slate-900">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+          <div className="inline-block mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="px-2.5 py-0.5 bg-[#7367f0]/20 rounded"
+        >
             <span className="text-[#7367f0] text-sm font-medium">
               Technologies
             </span>
+        </motion.div>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-2">
             Cutting-edge Technologies
@@ -488,13 +497,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 flex justify-center items-end self-end">
+        <div className="lg:w-1/2 flex justify-center items-end self-center lg:self-end">
           <Image
-            src="/dashboardSS.png"
+            src="/Dashboard.png"
             alt="dashboard image"
-            width={456}
-            height={576}
-            className="rounded-t-md shadow-lg max-w-[90%] md:max-w-md lg:max-w-full h-auto"
+            width={250}
+            height={300}
+            className="rounded-md lg:rounded-t-md lg:rounded-b-none shadow-lg max-w-[90%] md:max-w-md lg:max-w-full h-auto"
           />
         </div>
       </section>

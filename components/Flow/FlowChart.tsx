@@ -10,7 +10,7 @@ export default function FlowChart() {
                 formats , allowing for rapid product updates and new additions to meet changing
                 market needs. It incorporates AI predictive analysis to automatically adjust
                 rates , ensuring your pricing strategy remains profitable and risk-aware .`,
- 
+
             footerButtons: [],
         },
         {
@@ -24,22 +24,22 @@ export default function FlowChart() {
         },
         {
             label: "Claims Management",
- 
+
             description: `AI- Powered Efficiency: Designed to transform and accelerate your claims processing,
                 making it faster, more accurate, and cost-effective. Dedicated service designed to
                 ALTAI integrate seamlessly into your operations.
                 Integration and Connectivity: Integrated with industry top rated parts providers,
                 Inspection companies and for Parts & Labor rates and purchase.`,
             footerButtons: [
- 
+
             ],
         },
         {
             label: "Cancellations",
- 
+
             description: "Initiate and process cancellation online. AI based rule engine that ensures applying state specific rules .",
             footerButtons: [],
- 
+
         },
         {
             label: "Risk Management",
@@ -69,79 +69,83 @@ export default function FlowChart() {
                 `,
             footerButtons: [],
         },
- 
- 
+
+
         {
             label: "Sales Portal",
- 
+
             description: "Sales Portal provides a centralized dashboard for real-time visibility into sales, claims, and cancellations. It features a role-based structure allowing for simultaneous multi-product rating and contracting. Financial operations are streamlined via online payment processing through secure gateways like Authorize. net, WEX. Dynamic & advanced reporting with automatic notification on monthly /quarterly/annual statements.",
             footerButtons: [],
- 
+
         },
     ];
- 
+
     return (
-        <div className="w-[75%] text-center px-6 m-1">
+        <div className="w-full md:w-[75%] text-center px-4 md:px-6 mx-auto">
+
+
             <motion.div
-                className="text-center mb-16"
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
+                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded ">
                     <span className="text-[#7367f0] text-sm font-medium">
                         ALTAI
                     </span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white mb-6">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#2f2b3d]/90 dark:text-white">
                     <span className="relative inline-block overflow-visible">
                         Warranty Administration
                         <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-r from-[#7367f0] to-[#FF66B5] opacity-30 rounded-md pointer-events-none" style={{ transform: 'skewX(-12deg)' }}></span>
                     </span>
                     <span className="font-medium"> Platform</span>
                 </h2>
-                <div className="w-full overflow-x-auto mt-10">
-                    <div className="relative border rounded-xl p-8">
- 
+                <div className="w-full overflow-x-auto mt-5">
+                    <div className="relative border rounded-xl p-1 lg:p-8">
+
+
+
                         {/* Vertical line – centered & responsive */}
                         <div className="hidden md:block absolute left-1/4 top-0 bottom-0 border-r border-gray-300"></div>
- 
+
                         <div className="flex flex-col space-y-10">
                             {items.map((item, index) => (
-                                <div key={index} className="relative md:grid md:grid-cols-4 items-start">
- 
-                                {/* Label */}
-                                <div className="col-span-1 font-bold mt-4">
-                                    <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
+                                <div
+                                    key={index}
+                                    className="relative flex flex-col md:grid md:grid-cols-4 md:items-start gap-4"
+                                >
+                                    {/* Label */}
+                                    <div className="font-bold text-center md:col-span-1">
+                                        <span className="text-gray-700 dark:text-gray-100">{item.label}</span>
+                                    </div>
+
+                                    {/* Connector line (desktop only) */}
+                                    <div className="hidden md:block absolute left-1/4 transform -translate-x-1/2 top-8">
+                                        <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
+                                    </div>
+
+                                    {/* Card */}
+                                    <div className="w-full md:col-span-2 md:pl-8">
+
+                                        <Card className="w-full shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
+                                            <CardContent>
+                                                <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
+                                                    {item.description}
+                                                </p>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
                                 </div>
- 
- 
-                                {/* Connector hyphen line */}
-                                <div className="hidden md:block absolute left-1/4 transform -translate-x-1/2 top-8">
-                                    <div className="w-8 h-[2px] bg-gray-400 rounded"></div>
-                                </div>
- 
-                                {/* Card */}
-                                <div className="col-span-2 md:pl-8">
-                                    <Card className="shadow-lg border rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-[#7367f0]">
-                                        <CardContent>
-                                            <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
-                                                {item.description}
-                                            </p>
-                                        </CardContent>
-                                    </Card>
-                                </div>
- 
- 
-                            </div>
-                        ))}
+
+                            ))}
+                        </div>
                     </div>
-                </div>
- 
+
                 </div>
             </motion.div>
         </div>
     );
 }
- 
- 
+
