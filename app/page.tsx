@@ -14,6 +14,9 @@ import ContactSection from "../components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
 import FlowChart from "@/components/FlowChart";
+import ChatBot from "@/components/ChatBot/ChatBot";
+
+
 
 
 const MotionButton = motion(Button);
@@ -173,6 +176,8 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col min-h-screen">
+
+      <ChatBot></ChatBot>
 
       {/* Hero Section */}
       <motion.section
