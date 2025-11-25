@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col w-full">
       {/* Main Footer Section */}
-      <div className="bg-[#2F2B3D] dark:bg-slate-950 text-white px-6 md:px-16 py-16">
+      <div className="bg-[#2F2B3D] dark:bg-slate-950 text-white px-6 md:px-16 py-16 rounded-tl-[60px] rounded-tr-[60px]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 justify-items-center">
             {/* Brand Section */}
@@ -155,7 +155,7 @@ const Footer: React.FC = () => {
       <div className="bg-[#1a1a1a] dark:bg-slate-900 w-full border-t border-gray-700/50">
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-400">
-            © 2025 Codon systems Inc, <span className="font-bold">warranty management platform</span>
+            © {new Date().getFullYear()} Codon systems Inc, <span className="font-bold">warranty management platform</span>
           </div>
 
           <div className="flex items-center gap-4">

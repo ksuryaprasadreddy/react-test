@@ -127,7 +127,10 @@ export default function Navbar() {
             )}
           </Button>
 
-          <Button className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors">
+          <Button
+            onClick={() => window.location.href = 'https://dev.codonsystems.com/login'}
+            className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors"
+          >
             <LogIn className="w-4 h-5" />
             <span className="text-[15px] font-medium capitalize">Sign In</span>
           </Button>
@@ -169,8 +172,12 @@ export default function Navbar() {
         <div className="flex flex-col gap-4 items-center">
           {navItems.map((item) => (
             <div key={item.name} className="w-full flex justify-center">
-              <Link
+              <a
                 href={item.href}
+                onClick={(e) => {
+                  handleScrollTo(e, item.href);
+                  setIsMenuOpen(false);
+                }}
                 className={`px-2.5 py-2 rounded-md flex items-center justify-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300 w-full max-w-[200px]
                   ${activeLink === item.name
                     ? "text-[#7367F0] dark:text-[#7367F0] scale-110"
@@ -178,7 +185,7 @@ export default function Navbar() {
                   }`}
               >
                 {item.name}
-              </Link>
+              </a>
             </div>
           ))}
           {/* Mobile Action Buttons */}
@@ -199,7 +206,10 @@ export default function Navbar() {
                 <div className="w-5 h-5" />
               )}
             </Button>
-            <button className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors w-full max-w-[200px]">
+            <button
+              onClick={() => window.location.href = 'https://dev.codonsystems.com/login'}
+              className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors w-full max-w-[200px]"
+            >
               <LogIn className="w-5 h-5" />
               <span className="text-[15px] font-medium capitalize">
                 Sign In

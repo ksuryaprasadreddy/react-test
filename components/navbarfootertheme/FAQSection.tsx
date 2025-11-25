@@ -39,8 +39,8 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 mt-10 flex flex-col items-center gap-16">
+    <section className="w-full px-1 pt-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col items-center gap-16">
         {/* Header Section */}
         <div className="w-full flex flex-col items-center gap-4">
           <motion.div

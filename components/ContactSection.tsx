@@ -44,9 +44,9 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="px-10 py-24 bg-[#f8f7fa] dark:bg-slate-900">
+    <div className="px-10 py-16 bg-[#f8f7fa] dark:bg-slate-900">
       <motion.div
-        className="max-w-6xl mx-auto px-4 md:px-6 mt-10 flex flex-col items-center gap-16"
+        className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col items-center gap-16"
         initial="initial"
         animate="animate"
         variants={fadeInUp}

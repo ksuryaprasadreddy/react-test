@@ -83,7 +83,7 @@ export default function FlowChart() {
     return (
         <div className="w-[75%] text-center px-6 m-1">
             <motion.div
-                className="text-center mb-16"
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
