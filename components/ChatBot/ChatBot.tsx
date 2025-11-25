@@ -15,6 +15,7 @@ interface Message {
 export default function ChatBot() {
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatRef = useRef<HTMLDivElement>(null);
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -37,6 +38,22 @@ export default function ChatBot() {
     useEffect(() => {
         scrollToBottom();
     }, [messages, isOpen]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (chatRef.current && !chatRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen]);
 
 
     const handleSend = (e: React.FormEvent) => {
@@ -70,7 +87,7 @@ export default function ChatBot() {
 
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
             {isOpen && (
-                <div className="w-80 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <div ref={chatRef} className="w-80 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
                     {/* Header */}
                     <div className="bg-[#7367F0] p-4 flex justify-between items-center text-white">
                         <h3 className="font-medium">Chat Support</h3>
@@ -114,7 +131,7 @@ export default function ChatBot() {
                         <Button
                             type="submit"
                             size="icon"
-                            className="h-9 w-9 bg-[#7367F0] hover:bg-[#6055d8]"
+                            className="h-9 w-9 bg-[#7367F0] hover:bg-[#6055d8] text-white"
                         >
                             <Send size={16} />
                         </Button>
