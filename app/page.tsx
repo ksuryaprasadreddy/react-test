@@ -13,7 +13,7 @@ import FAQSection from "@/components/navbarfootertheme/FAQSection";
 import ContactSection from "../components/PopularArticles/ContactSection";
 import Footer from "@/components/navbarfootertheme/Footer";
 import PopulatArticles from "@/components/PopularArticles/PopularArticles";
-import FlowChart from "@/components/FlowChart";
+import FlowChart from "@/components/Flow/FlowChart";
 
 
 const MotionButton = motion(Button);
