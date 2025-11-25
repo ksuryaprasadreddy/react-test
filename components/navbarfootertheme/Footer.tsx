@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col w-full">
       {/* Main Footer Section */}
-      <div className="bg-[#2F2B3D] dark:bg-slate-950 text-white px-6 md:px-16 py-16 rounded-tl-[60px] rounded-tr-[60px]">
+      <div className="bg-[#2F2B3D] dark:bg-gray-900 text-white px-6 md:px-16 py-16 rounded-tl-[60px] rounded-tr-[60px]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 justify-items-center">
             {/* Brand Section */}
