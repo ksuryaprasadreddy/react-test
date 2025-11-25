@@ -61,9 +61,9 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="px-10 py-16 bg-[#f8f7fa] dark:bg-slate-900">
+    <div className="py-24 bg-[#f8f7fa] dark:bg-slate-900">
       <motion.div
-        className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col items-center gap-16"
+        className="max-w-6xl mx-auto px-4 md:px-6 mt-10 flex flex-col items-center gap-16"
         initial="initial"
         animate="animate"
         variants={fadeInUp}
@@ -91,23 +91,25 @@ const ContactSection: React.FC = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="w-[100%] sm:w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           <motion.div
             className="w-full bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10 p-2.5"
             variants={fadeInUp}
           >
-            <div className="relative aspect-video bg-gray-100 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10">
+            <div className="mx-2 sm:mx-0 relative aspect-video bg-gray-100 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10">
               {/* Dotted Lines Decoration */}
-              <div className="absolute -top-6 -left-6 w-[calc(20%+24px)] h-[calc(40%+24px)] rounded-tl-[72px] border-t-2 border-l-2 border-dashed border-[#7367f0]/60 pointer-events-none" />
-              <div className="absolute -top-9 -left-9 w-[calc(20%+48px)] h-[calc(40%+48px)] rounded-tl-[84px] border-t-2 border-l-2 border-dashed border-[#7367f0]/40 pointer-events-none" />
-              <div className="absolute -top-12 -left-12 w-[calc(20%+72px)] h-[calc(40%+72px)] rounded-tl-[96px] border-t-2 border-l-2 border-dashed border-[#7367f0]/20 pointer-events-none" />
+              <div className="absolute -top-6  -left-[20px] sm:-left-6   w-[calc(20%+24px)] h-[calc(40%+24px)] rounded-tl-[72px] border-t-2 border-l-2 border-dashed border-[#7367f0]/60 pointer-events-none" />
+              <div className="absolute -top-9 -left-[28px] sm:-left-9  w-[calc(20%+48px)] h-[calc(40%+48px)] rounded-tl-[84px] border-t-2 border-l-2 border-dashed border-[#7367f0]/40 pointer-events-none" />
+              <div className="absolute -top-12 -left-[34px] sm:-left-12  w-[calc(20%+72px)] h-[calc(40%+72px)] rounded-tl-[96px] border-t-2 border-l-2 border-dashed border-[#7367f0]/20 pointer-events-none" />
 
               {/* Map or image placeholder */}
               <img
                 src="https://lumanisystems.com/images/contact.jpg"
                 alt="Preview"
-                className="w-full h-[540px] object-cover rounded-tl-[60px] relative z-10"
+                className="w-full h-[360px] sm:h-[540px] sm: object-cover 
+                   rounded-tl-[40px] sm:rounded-tl-[60px] 
+                   relative z-10 flex items-center justify-center"
               />
             </div>
 
