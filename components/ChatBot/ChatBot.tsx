@@ -15,6 +15,8 @@ interface Message {
 export default function ChatBot() {
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatRef = useRef<HTMLDivElement>(null);
+    const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -26,17 +28,50 @@ export default function ChatBot() {
 
     const toggleChat = () => setIsOpen(!isOpen);
 
-    const scrollToBottom = () => {
-        // Use the optional chaining operator (?) for safety
-        messagesEndRef.current?.scrollTo({
-            top: messagesEndRef.current.scrollHeight,
-            behavior: 'smooth'
-        });
+    const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollTo({
+                top: messagesEndRef.current.scrollHeight,
+                behavior: behavior
+            });
+        }
     };
 
+    // Scroll to bottom instantly when chat opens
     useEffect(() => {
-        scrollToBottom();
+        if (isOpen) {
+            // Small timeout to ensure DOM is rendered
+            setTimeout(() => scrollToBottom('auto'), 0);
+        }
+    }, [isOpen]);
+
+    // Scroll to bottom smoothly when new messages arrive
+    useEffect(() => {
+        if (isOpen) {
+            scrollToBottom('smooth');
+        }
     }, [messages, isOpen]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                chatRef.current &&
+                !chatRef.current.contains(event.target as Node) &&
+                toggleButtonRef.current &&
+                !toggleButtonRef.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen]);
 
 
     const handleSend = (e: React.FormEvent) => {
@@ -70,11 +105,12 @@ export default function ChatBot() {
 
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
             {isOpen && (
-                <div className="w-80 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <div ref={chatRef} className="w-80 h-96 bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
                     {/* Header */}
                     <div className="bg-[#7367F0] p-4 flex justify-between items-center text-white">
                         <h3 className="font-medium">Chat Support</h3>
                         <button
+                            type="button"
                             onClick={toggleChat}
                             className="hover:bg-white/20 p-1 rounded transition-colors"
                         >
@@ -114,7 +150,7 @@ export default function ChatBot() {
                         <Button
                             type="submit"
                             size="icon"
-                            className="h-9 w-9 bg-[#7367F0] hover:bg-[#6055d8]"
+                            className="h-9 w-9 bg-[#7367F0] hover:bg-[#6055d8] text-white"
                         >
                             <Send size={16} />
                         </Button>
@@ -123,6 +159,8 @@ export default function ChatBot() {
             )}
 
             <button
+                ref={toggleButtonRef}
+                type="button"
                 onClick={toggleChat}
                 className="hover:scale-110 transition-transform duration-300 cursor-pointer focus:outline-none"
             >

@@ -78,23 +78,23 @@ export default function Navbar() {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-7xl p-2 md:px-6 bg-white/30 dark:bg-slate-900/30 rounded-md border-2 border-white dark:border-slate-700/50 backdrop-blur-xl z-50 shadow-lg">
       <div className="flex justify-between items-center">
         {/* Left Side: Logo + Navigation Links */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 lg:gap-8">
           {/* Logo Section */}
           <div className="flex items-center gap-3">
             <Image src="/codonlogo.png" alt="logo" width={20} height={30} />
-            <span className="text-[20px] font-black text-[#2F2B3D]/90 dark:text-white tracking-[0.25px] [text-shadow:1px_0_0_currentColor]">
+            <span className="hidden xl:inline text-[20px] font-black text-[#2F2B3D]/90 dark:text-white tracking-[0.25px] [text-shadow:1px_0_0_currentColor]">
               Codon Systems Inc
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2.5">
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 <a
                   href={item.href}
                   onClick={(e) => handleScrollTo(e, item.href)}
-                  className={`px-2.5 py-0 rounded-md flex items-center gap-2 text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300
+                  className={`px-2 xl:px-2.5 py-0 rounded-md flex items-center gap-2 text-[13px] xl:text-[15px] font-semibold hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300
                   ${activeLink === item.name
                       ? "text-[#7367F0] dark:text-[#7367F0] scale-110"
                       : "text-[#2F2B3D]/90 dark:text-slate-200"
@@ -108,7 +108,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Side: Action Buttons */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-6">
           {/* Theme Toggler */}
           <Button
             variant="ghost"
@@ -129,10 +129,10 @@ export default function Navbar() {
 
           <Button
             onClick={() => window.location.href = 'https://dev.codonsystems.com/login'}
-            className="bg-[#7367F0] text-white px-5 py-2 rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors"
+            className="bg-[#7367F0] text-white px-4 xl:px-5 py-2 rounded-md flex items-center gap-2 shadow-[0_2px_6px_rgba(115,103,240,0.30)] hover:bg-[#7367F0]/90 transition-colors"
           >
             <LogIn className="w-4 h-5" />
-            <span className="text-[15px] font-medium capitalize">Sign In</span>
+            <span className="text-[14px] xl:text-[15px] font-medium capitalize">Sign In</span>
           </Button>
         </div>
 
