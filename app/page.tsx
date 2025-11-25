@@ -9,10 +9,10 @@ import { Star, Laptop, User, Diamond, BadgeCheck, ShoppingCart } from "lucide-re
 import { MdOutlineCloud, MdOutlineSecurity, MdOutlineLayers, MdOutlineSmartToy, MdOutlineHeadsetMic } from "react-icons/md";
 import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/navbarfootertheme/FAQSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/navbarfootertheme/Footer";
-import PopulatArticles from "@/components/PopularArticles";
+import FAQSection from "@/components/FAQSection";
+import ContactSection from "../components/PopularArticles/ContactSection";
+import Footer from "@/components/Footer";
+import PopulatArticles from "@/components/PopularArticles/PopularArticles";
 import FlowChart from "@/components/FlowChart";
 
 
@@ -56,10 +56,14 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
           <Icon className="w-8 h-8 text-[#7367f0]" />
         </motion.div>
       </div>
-      <h3 className="text-xl font-semibold text-[#2f2b3d]/90 dark:text-white text-center">
+      <motion.div
+      animate={{color: isHovered ? "#7367f0" : "var(--foreground)",}}>
+
+      <h3 className="text-xl font-semibold min-h-[3.3rem] text-center">
         {title}
       </h3>
-      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-sm">
+      </motion.div>
+      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-justify leading-relaxed max-w-sm">
         {description}
       </p>
     </motion.div>
