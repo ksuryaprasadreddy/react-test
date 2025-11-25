@@ -13,7 +13,7 @@ import FAQSection from "@/components/FAQSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "@/components/Footer";
 import PopulatArticles from "@/components/PopularArticles";
-import FlowChart from "@/components/FlowChart";
+import FlowChart from "@/components/Flow/FlowChart";
 
 
 const MotionButton = motion(Button);
