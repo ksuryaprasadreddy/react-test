@@ -90,7 +90,7 @@ export default function FlowChart() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded ">
+                <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-3">
                     <span className="text-[#7367f0] text-sm font-medium">
                         ALTAI
                     </span>
@@ -102,7 +102,7 @@ export default function FlowChart() {
                     </span>
                     <span className="font-medium"> Platform</span>
                 </h2>
-                <div className="w-full overflow-x-auto mt-5">
+                <div className="w-full overflow-x-auto mt-10">
                     <div className="relative border rounded-xl p-1 lg:p-8">
 
 
