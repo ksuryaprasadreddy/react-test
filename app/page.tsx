@@ -219,7 +219,7 @@ export default function HomePage() {
             transition={{ delay: 0.5 }}
           >
             <Image
-              src="/dashboardSS.png"
+              src="/Dashboard.png"
               alt="dashboard"
               width={900}
               height={700}
@@ -230,7 +230,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 md:py-24 mt-20 md:mt-80">
+      <section id="features" className="pt-16 md:pt-24 mt-20 md:mt-80">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -271,11 +271,11 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section Placeholder */}
-      <section id="solutions" className="w-full px-1 py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
+      <section id="solutions" className="w-full px-1 pt-16 bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-[60px] flex flex-col items-center">
         <FlowChart />
       </section>
 
-      {/* <section id="industries" className="py-24 md:py-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
+      {/* <section id="industries" className="pt-24 md:pt-24 bg-[#f8f7fa] dark:bg-slate-900 rounded-t-[3rem]">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col text-center gap-8 lg:gap-14">
             
@@ -450,7 +450,7 @@ export default function HomePage() {
       </section>
 
       {/* Technologies Section Placeholder */}
-      <section id="technologies" className="py-24 md:py-24">
+      <section id="technologies" className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block px-2.5 py-0.5 bg-[#7367f0]/20 rounded mb-4">
             <span className="text-[#7367f0] text-sm font-medium">
@@ -483,13 +483,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 flex justify-center items-end self-end">
+        <div className="lg:w-1/2 flex justify-center items-end self-center lg:self-end">
           <Image
-            src="/dashboardSS.png"
+            src="/Dashboard.png"
             alt="dashboard image"
-            width={456}
-            height={576}
-            className="rounded-t-md shadow-lg max-w-[90%] md:max-w-md lg:max-w-full h-auto"
+            width={250}
+            height={300}
+            className="rounded-md lg:rounded-t-md lg:rounded-b-none shadow-lg max-w-[90%] md:max-w-md lg:max-w-full h-auto"
           />
         </div>
       </section>
