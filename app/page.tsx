@@ -56,10 +56,14 @@ const FeatureCard = ({ title, description, icon: Icon, className }: Feature & { 
           <Icon className="w-8 h-8 text-[#7367f0]" />
         </motion.div>
       </div>
-      <h3 className="text-xl font-semibold text-[#2f2b3d]/90 dark:text-white text-center">
+      <motion.div
+      animate={{color: isHovered ? "#7367f0" : "var(--foreground)",}}>
+
+      <h3 className="text-xl font-semibold min-h-[3.3rem] text-center">
         {title}
       </h3>
-      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-center leading-relaxed max-w-sm">
+      </motion.div>
+      <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-justify leading-relaxed max-w-sm">
         {description}
       </p>
     </motion.div>

@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "../ui/card"
-import car  from "../public/car.jpg"
-import marine from "../public/marine.jpg"
-import rvs from "../public/rvs.jpg"
-import truck from "../public/truck.jpg"
-import power from "../public/power.jpg"
-import heavy from "../public/heavy.jpg"
+import car  from "../../public/car.jpg"
+import marine from "../../public/marine.jpg"
+import rvs from "../../public/rvs.jpg"
+import truck from "../../public/truck.jpg"
+import power from "../../public/power.jpg"
+import heavy from "../../public/heavy.jpg"
 import Image from "next/image"
 import { motion } from "framer-motion";
 
