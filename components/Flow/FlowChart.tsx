@@ -145,7 +145,7 @@ export default function FlowChart() {
 >
 
                                                 <CardContent>
-                                                    <p className="text-sm dark:text-slate-400 text-gray-600 leading-relaxed pt-5">
+                                                    <p className="text-sm text-[#2F2A3D]/70 dark:text-slate-400 text-justify leading-relaxed pt-5">
                                                         {item.description}
                                                     </p>
                                                 </CardContent>

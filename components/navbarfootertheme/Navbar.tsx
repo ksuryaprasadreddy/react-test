@@ -82,7 +82,7 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex items-center gap-3">
             <Image src="/codonlogo.png" alt="logo" width={20} height={30} />
-            <span className="hidden xl:inline text-[20px] font-black text-[#2F2B3D]/90 dark:text-white tracking-[0.25px] [text-shadow:1px_0_0_currentColor]">
+            <span className="lg:hidden xl:inline text-[20px] font-black text-[#2F2B3D]/90 dark:text-white tracking-[0.25px] [text-shadow:1px_0_0_currentColor]">
               Codon Systems Inc
             </span>
           </div>
