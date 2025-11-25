@@ -37,6 +37,23 @@ const ContactSection: React.FC = () => {
     }));
   };
 
+  const handlePaste = (e) => {
+    if (e.clipboardData) {
+      const paste = e.clipboardData.getData("text");
+      const { selectionStart, selectionEnd } = e.target;
+      const current = formData.message || "";
+      
+      const newValue =
+        current.slice(0, selectionStart) + paste + current.slice(selectionEnd);
+      if (newValue.length > 256) {
+        
+        e.preventDefault();
+        const trimmed = newValue.slice(0, 256);
+        setFormData((prev) => ({ ...prev, message: trimmed }));
+      }
+    }
+  };
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -44,9 +61,9 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="px-10 py-24 bg-[#f8f7fa] dark:bg-slate-900">
+    <div className="px-10 py-16 bg-[#f8f7fa] dark:bg-slate-900">
       <motion.div
-        className="max-w-6xl mx-auto px-4 md:px-6 mt-10 flex flex-col items-center gap-16"
+        className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col items-center gap-16"
         initial="initial"
         animate="animate"
         variants={fadeInUp}
@@ -75,7 +92,7 @@ const ContactSection: React.FC = () => {
 
         {/* Contact Section */}
         <div className="w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Contact Info Card */}
+          
           <motion.div
             className="w-full bg-[#f8f7fa] dark:bg-slate-900 rounded-tl-[60px] rounded-tr-md rounded-b-md border border-[#2f2b3d]/10 p-2.5"
             variants={fadeInUp}
@@ -90,35 +107,11 @@ const ContactSection: React.FC = () => {
               <img
                 src="https://lumanisystems.com/images/contact.jpg"
                 alt="Preview"
-                className="w-full h-[450px] object-cover rounded-tl-[60px] relative z-10"
+                className="w-full h-[540px] object-cover rounded-tl-[60px] relative z-10"
               />
             </div>
 
-            <div className="px-4 pt-4 pb-1.5 flex flex-col sm:flex-row justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="p-1.5 bg-[#7367f0]/20 rounded-md">
-                  <Mail className="w-6 h-6 text-[#7367f0]" />
-                </div>
-                <div>
-                  <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">Email</p>
-                  <p className="text-[#2f2b3d]/90 dark:text-white text-sm font-medium">
-                    example@gmail.com
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="p-1.5 bg-[#28c76f]/20 rounded-md">
-                  <Phone className="w-6 h-6 text-[#28c76f]" />
-                </div>
-                <div>
-                  <p className="text-[#2f2b3d]/70 dark:text-slate-400 text-sm">Phone</p>
-                  <p className="text-[#2f2b3d]/90 dark:text-white text-sm font-medium">
-                    +1234 568 963
-                  </p>
-                </div>
-              </div>
-            </div>
+            
           </motion.div>
 
           {/* Contact Form */}
@@ -152,7 +145,7 @@ const ContactSection: React.FC = () => {
 
                 <div className="space-y-1">
                   <label className="text-xs text-[#2f2b3d]/90 dark:text-slate-200">
-                    Contact Name
+                    Name
                   </label>
                   <input
                     type="text"
@@ -184,7 +177,7 @@ const ContactSection: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs text-[#2f2b3d]/90 dark:text-slate-200">
-                    Contact Email
+                  Email
                   </label>
                   <input
                     type="email"
@@ -198,7 +191,7 @@ const ContactSection: React.FC = () => {
 
                 <div className="space-y-1">
                   <label className="text-xs text-[#2f2b3d]/90 dark:text-slate-200">
-                    Contact Phone
+                    Phone
                   </label>
                   <input
                     type="text"
@@ -217,13 +210,32 @@ const ContactSection: React.FC = () => {
                   Message
                 </label>
                 <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Write a message..."
-                  rows={4}
-                  className="w-full px-3.5 py-2 rounded-md border border-[#2f2b3d]/20 text-sm focus:outline-none focus:border-[#7367f0] resize-none"
-                />
+      name="message"
+      value={formData.message}
+      onChange={(e) => {
+        const value = e.target.value;
+        if (value.length <= 256) {
+          handleInputChange(e);
+        }
+      }}
+      onPaste={handlePaste}
+      placeholder="Write a message.."
+      rows={4}
+      className={`w-full px-3.5 py-2 rounded-md border text-sm placeholder:text-[#2f2b3d]/40 
+        focus:outline-none resize-none ${
+          formData.message.length >= 256
+            ? "border-red-500"
+            : "border-[#2f2b3d]/20 focus:border-[#7367f0]"
+        }`}
+    />
+
+        
+        {formData.message.length >= 256 && (
+          <p className="text-red-500 text-xs">Maximum 256 characters are allowed.</p>
+        )}
+
+        
+        <p className="text-xs text-gray-400">{formData.message.length}/256</p>
               </div>
 
               {/* Submit */}
